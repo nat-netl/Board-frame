@@ -1,6 +1,9 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import basketSlice from '../slices/basket';
+
 
 const reducers = {
+  basket: basketSlice
 };
 
 const rootReducer = combineReducers({

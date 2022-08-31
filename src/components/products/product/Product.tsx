@@ -1,12 +1,41 @@
 import React, { FC } from "react";
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
+import { addToBasket } from "../../../redux/slices/basket";
 import { ICard } from "../../../types/card";
 import s from "./product.module.scss";
 
-const Product: FC<ICard> = ({ id, name, image, price, description, instock}) => {
+const Product: FC<ICard> = ({
+  id,
+  name,
+  image,
+  price,
+  description,
+  instock,
+}) => {
+  const { basket } = useAppSelector((state) => state.basket);
+  const dispatch = useAppDispatch();
+
+  console.log(basket);
+
   return (
-    <a href="/#" className={s.product}>
+    <a
+      href="/#"
+      className={s.product}
+      onClick={() =>
+        dispatch(
+          addToBasket([{
+            id: id,
+            name: name,
+            image: image,
+            price: price,
+            description: description,
+            instock: instock,
+          }])
+        )
+      }
+    >
       <div className={instock ? s.product__instock : s.product__no__instock}>
-        <span>{instock ? 'В наличии' : 'Нет в наличии'}</span>
+        <span>{instock ? "В наличии" : "Нет в наличии"}</span>
       </div>
 
       <div className={s.product__image}>
