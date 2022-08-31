@@ -33,10 +33,13 @@ body {
 
 a {
   text-decoration: none;
+  transition: all 0.5s;
 }
 
-.сontainer {
-  max-width: 1800px;
-  margin: auto;
-  padding: 0 15px;
+@media (min-width: 540px) {
+  .сontainer {
+    max-width: $max-width;
+    margin: auto;
+    padding: 0 $pd-x;
+  }
 }
