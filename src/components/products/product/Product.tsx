@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
-import { addToBasket } from "../../../redux/slices/basket";
-import { ICard } from "../../../types/card";
+import { addedToBasket, addToBasket } from "../../../redux/slices/basket";
+import { IProduct } from "../../../types/card";
 import s from "./product.module.scss";
 
-const Product: FC<ICard> = ({
+const Product: FC<IProduct> = ({
   id,
   name,
   image,
@@ -17,23 +17,10 @@ const Product: FC<ICard> = ({
 
   console.log(basket);
 
+  // dispatch(addedToBasket({ id: id }));
+
   return (
-    <a
-      href="/#"
-      className={s.product}
-      onClick={() =>
-        dispatch(
-          addToBasket([{
-            id: id,
-            name: name,
-            image: image,
-            price: price,
-            description: description,
-            instock: instock,
-          }])
-        )
-      }
-    >
+    <a href="/#" className={s.product}>
       <div className={instock ? s.product__instock : s.product__no__instock}>
         <span>{instock ? "В наличии" : "Нет в наличии"}</span>
       </div>
@@ -51,6 +38,25 @@ const Product: FC<ICard> = ({
           <span>{price} ₽</span>
         </div>
       </div>
+
+      <button
+        onClick={() =>
+          dispatch(
+            addToBasket([
+              {
+                id: id,
+                name: name,
+                image: image,
+                price: price,
+                description: description,
+                instock: instock,
+              },
+            ])
+          )
+        }
+      >
+        Купить
+      </button>
     </a>
   );
 };
