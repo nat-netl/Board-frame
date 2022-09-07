@@ -1,0 +1,10 @@
+@import './../../assets/styles/_variables.scss';
+
+.nav__list__item {
+  font-family: $font-b;
+  font-size: 18px;
+  margin-right: 15px;
+  &:last-child {
+    margin-right: 0;
+  }
+}

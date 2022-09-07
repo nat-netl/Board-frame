@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation, useParams } from "react-router-dom";
-import { productAPI } from "./../../../redux/services/ProductService";
-import s from "./productCard.module.scss";
+import { productAPI } from "../../../redux/services/ProductService";
+import s from "./productIdCard.module.scss";
 import m from "./../../../assets/styles/main.module.scss";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { addToBasket } from "../../../redux/slices/basket";
