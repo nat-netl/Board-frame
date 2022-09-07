@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren } from 'react'
+import React, { PropsWithChildren } from 'react'
 import { Link } from 'react-router-dom'
 import { routesForGuest } from '../../constants/navbar'
 import s from './navRoutes.module.scss'

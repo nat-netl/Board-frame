@@ -1,4 +1,3 @@
-import { title } from "process";
 import { IRoutesForGuest } from "../types/navbarRoutes";
 
 export const homePath = '/';
