@@ -1,0 +1,23 @@
+@import '../../assets/styles/_variables.scss';
+
+.footer {
+  .footer__wrapper{
+    .nav__rows {
+      margin-bottom: 20px;
+      .nav__row {
+        a {
+          color: $color-white;
+          &:hover {
+            color: $color-gray;
+          } 
+        }
+      }
+    }
+
+    .copyright {
+      color: $color-gray;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
