@@ -22,9 +22,12 @@
 }
 
 body {
-  font-family: 'Nunito-Regular', sans-serif;
+  font-family: $font-regular;
   font-size: 1.2rem;
   line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
@@ -37,15 +40,21 @@ a {
   }
 }
 
+footer {
+  background-color: $color-contrast-hight;
+  color: $color-white;
+  margin-top: auto;
+}
+
 .container {
   padding: $pd-y $pd-x;
   max-width: $max-width;
-  margin: auto;
 }
 
-@media (max-width: 1020px) {
+
+@media (max-width: 1024px) {
   .container {
-    padding: 0 $pd-x-m;
+    padding: $pd-y-m $pd-x-m;
   }
 }
 
@@ -72,4 +81,5 @@ button {
 .addToBasket {
   padding: 0 12px 0 0;
 }
+
 
