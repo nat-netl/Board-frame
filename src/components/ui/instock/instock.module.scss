@@ -1,0 +1,32 @@
+@import "./../../../assets/styles/_variables.scss";
+
+.product__instock {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  z-index: 2;
+
+  span {
+    color: $color-white;
+    background-color: $bg-bright-green;
+    padding: 5px;
+    margin: 20px;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+}
+
+.product__no__instock {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  z-index: 2;
+  span {
+    color: $color-white;
+    background-color: $bg-gray;
+    padding: 5px;
+    margin: 20px;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+}
