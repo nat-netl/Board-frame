@@ -15,7 +15,7 @@ export const productAPI = createApi({
       }),
     }),
     fetchIdProduct: build.query<IProduct[], number>({
-      query: (id: number = 0) => ({
+      query: (id = 0) => ({
         url: "products",
         params: {
           id_like: id

@@ -12,9 +12,7 @@
   &:hover {
     transform: scale(1.05);
   }
-  &[disabled] {
-    cursor: auto;
-  }
+  
 }
 
 .buy__button,
@@ -27,5 +25,5 @@
   border: none;
   padding: $pd-xy;
   border-radius: 15px;
-  cursor: pointer;
+  cursor: auto;
 }
