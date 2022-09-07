@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import s from "./navbar.module.scss";
 import MenuIcon from "@mui/icons-material/Menu";
 import classNames from "classnames";
-import NavRoutes from "../../navRoutes/NavRoutes";
+import NavRoutes from "../../ui/navRoutes/NavRoutes";
 
 function Navbar() {
   const [openBurger, setOpenBurger] = useState<boolean>(false);

@@ -72,22 +72,6 @@ li {
   list-style-type: none;
 }
 
-button {
-  background: $bg-green;
-  color: $color-white;
-  border: none;
-  padding: $pd-xy;
-  border-radius: 15px;
-  cursor: pointer;
-  transition: all 0.5s;
-  &:active, &:hover {
-    transform: scale(1.05);
-  }
-  &[disabled] {
-    cursor: auto;
-  }
-}
-
 .addToBasket {
   padding: 0 12px 0 0;
 }

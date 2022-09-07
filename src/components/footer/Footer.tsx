@@ -1,6 +1,6 @@
 import React from "react";
 import m from "../../assets/styles/main.module.scss";
-import NavRoutes from "../navRoutes/NavRoutes";
+import NavRoutes from "../ui/navRoutes/NavRoutes";
 import s from "./footer.module.scss";
 
 function Footer() {

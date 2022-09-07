@@ -6,15 +6,19 @@ import m from "./../../../assets/styles/main.module.scss";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { addToBasket } from "../../../redux/slices/basket";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { IProduct } from "../../../types/card";
+import BuyGreenButton from "../../ui/buttons/buy-button/BuyGreenButton";
 
 function ProductIdCard() {
   const { id }: any = useParams();
-  const { data: product } = productAPI.useFetchIdProductQuery<any>(id);
-  const { basket, isLoading } = useAppSelector((state) => state.basket);
+  const { data: product, isLoading }: any =
+    productAPI.useFetchIdProductQuery<IProduct>(id);
+  const { basket } = useAppSelector((state) => state.basket);
   const dispatch = useAppDispatch();
   const isExistsInCard = basket.some(
     (p) => p.id === (product && product[0].id)
   );
+  console.log(basket);
 
   return (
     <div className={s.product}>
@@ -33,9 +37,8 @@ function ProductIdCard() {
               <h1>{product && product[0].name}</h1>
             </div>
 
-            <button
-              className={isExistsInCard ? s.bought__button : s.buy__button}
-              disabled={isExistsInCard}
+            <BuyGreenButton
+              inBasket={isExistsInCard}
               onClick={() =>
                 dispatch(
                   addToBasket([
@@ -51,15 +54,16 @@ function ProductIdCard() {
                 )
               }
             >
-              <span className={m.addToBasket}>
-                {product && product[0].price} ₽
-              </span>{" "}
+              {product && (
+                <span className={m.addToBasket}>{product[0].price} ₽</span>
+              )}
+
               {isLoading
-                ? "Добавляем в корзину"
+                ? "..."
                 : isExistsInCard
                 ? "Товар уже добавлен"
                 : "Добавить в корзину"}
-            </button>
+            </BuyGreenButton>
           </div>
         </div>
 
