@@ -1,32 +1,25 @@
 import React, { FC } from "react";
-import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
-import { addedToBasket, addToBasket } from "../../../redux/slices/basket";
+import { Link } from "react-router-dom";
 import { IProduct } from "../../../types/card";
 import s from "./product.module.scss";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
-const Product: FC<IProduct> = ({
-  id,
-  name,
-  image,
-  price,
-  description,
-  instock,
-}) => {
-  const { basket } = useAppSelector((state) => state.basket);
-  const dispatch = useAppDispatch();
-
-  console.log(basket);
-
-  // dispatch(addedToBasket({ id: id }));
-
+const Product: FC<IProduct> = ({ id, name, image, price, instock }) => {
   return (
-    <a href="/#" className={s.product}>
+    <Link to={`${id}`} className={s.product}>
       <div className={instock ? s.product__instock : s.product__no__instock}>
         <span>{instock ? "В наличии" : "Нет в наличии"}</span>
       </div>
 
       <div className={s.product__image}>
-        <img src={image} alt={name} />
+        <LazyLoadImage
+          effect="blur"
+          src={image}
+          alt={name}
+          placeholderSrc={image}
+        />
       </div>
 
       <div className={s.product__info}>
@@ -38,26 +31,7 @@ const Product: FC<IProduct> = ({
           <span>{price} ₽</span>
         </div>
       </div>
-
-      <button
-        onClick={() =>
-          dispatch(
-            addToBasket([
-              {
-                id: id,
-                name: name,
-                image: image,
-                price: price,
-                description: description,
-                instock: instock,
-              },
-            ])
-          )
-        }
-      >
-        Купить
-      </button>
-    </a>
+    </Link>
   );
 };
 

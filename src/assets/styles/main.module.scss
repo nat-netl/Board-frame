@@ -18,28 +18,58 @@
 * {
   padding: 0;
   margin: 0;
-}
-
-
-html {
-  font-size: 16px;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: "Nunito-Regular", sans-serif;
-  font-size: 1rem;
+  font-family: 'Nunito-Regular', sans-serif;
+  font-size: 1.2rem;
   line-height: 1.5;
 }
 
 a {
   text-decoration: none;
   transition: all 0.5s;
-}
+  color: $color-black;
 
-@media (min-width: 540px) {
-  .сontainer {
-    max-width: $max-width;
-    margin: auto;
-    padding: 0 $pd-x;
+  &:hover {
+    color: $color-gray;
   }
 }
+
+.container {
+  padding: $pd-y $pd-x;
+  max-width: $max-width;
+  margin: auto;
+}
+
+@media (max-width: 1020px) {
+  .container {
+    padding: 0 $pd-x-m;
+  }
+}
+
+li {
+  list-style-type: none;
+}
+
+button {
+  background: $bg-green;
+  color: $color-white;
+  border: none;
+  padding: $pd-xy;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.5s;
+  &:active, &:hover {
+    transform: scale(1.05);
+  }
+  &[disabled] {
+    cursor: auto;
+  }
+}
+
+.addToBasket {
+  padding: 0 12px 0 0;
+}
+

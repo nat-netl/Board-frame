@@ -1,13 +1,14 @@
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-
-/* Document
-   ========================================================================== */
-
-/**
- * 1. Correct the line height in all browsers.
- * 2. Prevent adjustments of font size after orientation changes in iOS.
- */
-
+@media (max-width: 540px) {
+  button {
+    font-size: 16px !important;
+  }
+  h1 {
+    font-size: 28px !important;   
+  }
+  h2 {
+    font-size: 26px !important;   
+  }
+}
  html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -40,6 +41,10 @@ main {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
+}
+
+h2 {
+  margin: 0 0 0.67em 0;
 }
 
 /* Grouping content
@@ -147,6 +152,8 @@ sup {
 
 img {
   border-style: none;
+  max-width: 100%;
+  height: auto;
 }
 
 /* Forms

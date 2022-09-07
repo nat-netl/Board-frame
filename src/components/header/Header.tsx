@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import s from "./header.module.scss";
-import logo from './../../assets/images/logo_transparent.png'
+import logo from "./../../assets/images/logo_transparent.png";
+import Navbar from "./navbar/Navbar";
 
 function Header() {
   return (
@@ -12,6 +13,7 @@ function Header() {
             <img src={logo} alt="header-logo" />
           </Link>
         </div>
+        <Navbar />
       </div>
     </header>
   );
