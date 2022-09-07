@@ -2,7 +2,7 @@ import React from "react";
 import s from "./CardSkeleton.module.scss";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { IProduct } from "../../types/card";
+import { IProduct } from "../../../../types/card";
 
 function CardSkeleton({cards}: IProduct | number | any) {
   console.log (cards)

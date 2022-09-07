@@ -3,7 +3,7 @@ import { productAPI } from "../../../redux/services/ProductService";
 import Product from "../product/Product";
 import s from "./productList.module.scss";
 import m from "./../../../assets/styles/main.module.scss";
-import CardSkeleton from "../../cardSkeleton/CardSkeleton";
+import CardSkeleton from "../../ui/skeletons/cardSkeleton/CardSkeleton";
 
 function ProductList() {
   const {
