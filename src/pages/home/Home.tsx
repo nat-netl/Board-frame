@@ -1,8 +1,11 @@
 import React from 'react'
+import s from '../../assets/styles/main.module.scss'
 
 function Home() {
   return (
-    <div>Home</div>
+    <div className={s.сontainer}>
+      
+    </div>
   )
 }
 

@@ -1,0 +1,28 @@
+@import './../../assets/styles/_variables.scss';
+
+.header {
+  z-index: 10000;
+  transition: background-color 0.2s;
+  left: 0;
+  width: 100%;
+  background: #ffff;
+  position: sticky;
+  top: 0;
+  .wrapper {
+    padding: 20px 15px;
+    display: flex;
+    align-items: center;
+
+    .logo__wrapper {
+      margin-right: 3rem;
+      img {
+        width: 60px;
+        height: 60px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      justify-content: space-between;
+    }
+  }
+}

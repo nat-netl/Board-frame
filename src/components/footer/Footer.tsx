@@ -1,8 +1,11 @@
 import React from 'react'
+import s from '../../assets/styles/main.module.scss'
 
 function Footer() {
   return (
-    <div>Footer</div>
+    <footer className={s.container}>
+      Footer
+    </footer>
   )
 }
 

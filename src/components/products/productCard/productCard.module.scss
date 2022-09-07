@@ -1,0 +1,44 @@
+@import '../../../assets/styles/_variables.scss';
+
+.product {
+  display: flex;
+  .buy__card {
+    display: flex;
+    flex-wrap: wrap;
+    .image__card {
+      max-width: 60%;
+      padding-right: 20px;
+
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .info__wrapper {
+      .buy__button, .bought__button {
+        font-size: 20px;
+      }
+      .bought__button {
+        background-color: $bg-gray;
+      }
+    }
+  }
+  .bottom__card {
+    padding-top: $pd-y;
+    max-width: 60%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .product {
+    .buy__card {
+      .image__card {
+        max-width: 100%;
+        padding-right: 0;
+      }
+    }
+    .bottom__card {
+      max-width: 100%;
+    }
+  }
+}
