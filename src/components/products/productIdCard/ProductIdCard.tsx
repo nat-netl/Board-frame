@@ -8,6 +8,7 @@ import { addToBasket } from "../../../redux/slices/basket";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { IProduct } from "../../../types/card";
 import BuyGreenButton from "../../ui/buttons/buy-button/BuyGreenButton";
+import Instock from "../../ui/instock/Instock";
 
 function ProductIdCard() {
   const { id }: any = useParams();
@@ -35,6 +36,7 @@ function ProductIdCard() {
           <div className={s.info__wrapper}>
             <div className={s.product__name}>
               <h1>{product && product[0].name}</h1>
+              <Instock instock={product && product[0].instock} />
             </div>
 
             <BuyGreenButton

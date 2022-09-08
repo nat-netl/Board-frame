@@ -14,8 +14,12 @@
       }
     }
 
-    // .info__wrapper {
-    // }
+    .info__wrapper {
+      .product__name {
+        display: flex;
+        align-items: flex-start;
+      }
+    }
   }
   .bottom__card {
     padding-top: $pd-y;
