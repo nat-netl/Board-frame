@@ -9,9 +9,11 @@
   position: sticky;
   top: 0;
   .wrapper {
-    padding: 20px 15px;
+    padding: .5em $pd-x-m;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $bg-gray;
     .wrapper__nav {
       display: flex;
       align-items: center;
