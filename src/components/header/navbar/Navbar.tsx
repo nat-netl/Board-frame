@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { routesForGuest } from "../../../constants/navbar";
 import s from "./navbar.module.scss";
 import MenuIcon from "@mui/icons-material/Menu";
 import classNames from "classnames";
+import NavRoutes from "../../ui/navRoutes/NavRoutes";
 
 function Navbar() {
   const [openBurger, setOpenBurger] = useState<boolean>(false);
@@ -29,14 +28,7 @@ function Navbar() {
           openBurger ? s.openListBurger : s.closeListBurger
         )}
       >
-        {routesForGuest &&
-          routesForGuest.map((route, index) => (
-            <li key={index} className={s.nav__list__item}>
-              <Link onClick={() => setOpenBurger(!openBurger)} to={route.path}>
-                {route.title}
-              </Link>
-            </li>
-          ))}
+       <NavRoutes openBurger={openBurger} setOpenBurger={setOpenBurger} /> 
       </ul>
     </nav>
   );

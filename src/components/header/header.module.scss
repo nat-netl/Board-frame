@@ -8,21 +8,53 @@
   background: #ffff;
   position: sticky;
   top: 0;
+  .border__bottom {
+    border-bottom: 1px solid $bg-gray;
+  }
   .wrapper {
-    padding: 20px 15px;
+    padding: .5em $pd-x-m;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-
-    .logo__wrapper {
-      margin-right: 3rem;
-      img {
-        width: 60px;
-        height: 60px;
+    .wrapper__nav {
+      display: flex;
+      align-items: center;
+      .logo__wrapper {
+        margin-right: 3rem;
+        img {
+          width: 60px;
+          height: 60px;
+        }
       }
     }
 
-    @media (max-width: 768px) {
-      justify-content: space-between;
+    .basket {
+      .link__to__basket {
+        position: relative;
+        .basket__length {
+          position: absolute;
+          font-size: 14px;
+          font-family: $font-b;
+          line-height: 100%;
+        }
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .wrapper {
+      .wrapper__nav {
+        flex-direction: row-reverse;
+        width: 100%;
+        .logo__wrapper {
+          margin-right: 0;
+          width: 100%;
+          text-align: center;
+          img {
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
     }
   }
 }

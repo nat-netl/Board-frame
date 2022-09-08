@@ -1,16 +1,20 @@
 import React from "react";
-import { useLocation, useParams } from "react-router-dom";
-import { productAPI } from "./../../../redux/services/ProductService";
-import s from "./productCard.module.scss";
+import { useParams } from "react-router-dom";
+import { productAPI } from "../../../redux/services/ProductService";
+import s from "./productIdCard.module.scss";
 import m from "./../../../assets/styles/main.module.scss";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { addToBasket } from "../../../redux/slices/basket";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { IProduct } from "../../../types/card";
+import BuyGreenButton from "../../ui/buttons/buy-button/BuyGreenButton";
+import Instock from "../../ui/instock/Instock";
 
 function ProductIdCard() {
   const { id }: any = useParams();
-  const { data: product } = productAPI.useFetchIdProductQuery<any>(id);
-  const { basket, isLoading } = useAppSelector((state) => state.basket);
+  const { data: product, isLoading }: any =
+    productAPI.useFetchIdProductQuery<IProduct>(id);
+  const { basket } = useAppSelector((state) => state.basket);
   const dispatch = useAppDispatch();
   const isExistsInCard = basket.some(
     (p) => p.id === (product && product[0].id)
@@ -31,11 +35,12 @@ function ProductIdCard() {
           <div className={s.info__wrapper}>
             <div className={s.product__name}>
               <h1>{product && product[0].name}</h1>
+              <Instock instock={product && product[0].instock} />
             </div>
 
-            <button
-              className={isExistsInCard ? s.bought__button : s.buy__button}
-              disabled={isExistsInCard}
+            <BuyGreenButton
+              inBasket={isExistsInCard}
+              inStock={product && product[0].instock}
               onClick={() =>
                 dispatch(
                   addToBasket([
@@ -51,15 +56,16 @@ function ProductIdCard() {
                 )
               }
             >
-              <span className={m.addToBasket}>
-                {product && product[0].price} ₽
-              </span>{" "}
+              {product && (
+                <span className={m.addToBasket}>{product[0].price} ₽</span>
+              )}
+
               {isLoading
-                ? "Добавляем в корзину"
+                ? "..."
                 : isExistsInCard
                 ? "Товар уже добавлен"
-                : "Добавить в корзину"}
-            </button>
+                : product && product[0].instock ? "Добавить в корзину" : 'Товара нет в наличии'}
+            </BuyGreenButton>
           </div>
         </div>
 

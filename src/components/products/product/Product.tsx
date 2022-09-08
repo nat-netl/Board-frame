@@ -2,16 +2,14 @@ import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import { IProduct } from "../../../types/card";
 import s from "./product.module.scss";
-import "react-lazy-load-image-component/src/effects/blur.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import Instock from "../../ui/instock/Instock";
 
-const Product: FC<IProduct> = ({ id, name, image, price, instock }) => {
+const Product: FC<IProduct> = ({ id, name, image, price, instock }) => {  
   return (
     <Link to={`${id}`} className={s.product}>
-      <div className={instock ? s.product__instock : s.product__no__instock}>
-        <span>{instock ? "В наличии" : "Нет в наличии"}</span>
-      </div>
+      <Instock instock={instock} />
 
       <div className={s.product__image}>
         <LazyLoadImage

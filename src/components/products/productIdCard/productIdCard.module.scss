@@ -6,7 +6,7 @@
     display: flex;
     flex-wrap: wrap;
     .image__card {
-      max-width: 60%;
+      max-width: 59%;
       padding-right: 20px;
 
       img {
@@ -15,11 +15,10 @@
     }
 
     .info__wrapper {
-      .buy__button, .bought__button {
-        font-size: 20px;
-      }
-      .bought__button {
-        background-color: $bg-gray;
+      max-width: 40%;
+      .product__name {
+        display: flex;
+        align-items: flex-start;
       }
     }
   }
@@ -36,9 +35,28 @@
         max-width: 100%;
         padding-right: 0;
       }
+      .info__wrapper {
+        max-width: 100%;
+      }
     }
     .bottom__card {
       max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .product {
+    .buy__card {
+      .info__wrapper {
+        .product__name {
+          flex-direction: column-reverse;
+          flex-wrap: wrap;
+          span {
+            margin: 20px 0 0 0;
+          }
+        }
+      }  
     }
   }
 }

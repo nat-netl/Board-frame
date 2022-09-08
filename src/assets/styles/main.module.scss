@@ -22,9 +22,12 @@
 }
 
 body {
-  font-family: 'Nunito-Regular', sans-serif;
+  font-family: $font-regular;
   font-size: 1.2rem;
   line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
@@ -37,15 +40,31 @@ a {
   }
 }
 
+footer {
+  background-color: $color-contrast-hight;
+  color: $color-white;
+  margin-top: auto;
+
+  &:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 24px;
+    background-color: $color-white;
+    border-radius: 0 0 20px 20px;
+    border-top: 1px solid $bg-gray;
+  }
+}
+
 .container {
   padding: $pd-y $pd-x;
   max-width: $max-width;
-  margin: auto;
 }
 
-@media (max-width: 1020px) {
+
+@media (max-width: 1024px) {
   .container {
-    padding: 0 $pd-x-m;
+    padding: $pd-y-m $pd-x-m;
   }
 }
 
@@ -53,23 +72,8 @@ li {
   list-style-type: none;
 }
 
-button {
-  background: $bg-green;
-  color: $color-white;
-  border: none;
-  padding: $pd-xy;
-  border-radius: 15px;
-  cursor: pointer;
-  transition: all 0.5s;
-  &:active, &:hover {
-    transform: scale(1.05);
-  }
-  &[disabled] {
-    cursor: auto;
-  }
-}
-
 .addToBasket {
   padding: 0 12px 0 0;
 }
+
 

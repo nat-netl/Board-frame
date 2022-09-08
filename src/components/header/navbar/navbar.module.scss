@@ -4,14 +4,6 @@
   display: flex;
   .nav__list {
     overflow: auto;
-    .nav__list__item {
-      font-family: $font-b;
-      font-size: 18px;
-      margin-right: 15px;
-      &:last-child {
-        margin-right: 0;
-      }
-    }
   }
   .burgerMenuIsOpen {
     z-index: 3;

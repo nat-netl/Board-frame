@@ -1,0 +1,29 @@
+@import './../../../../assets/styles/_variables.scss';
+
+.buy__button {
+  background: $bg-green;
+  color: $color-white;
+  border: none;
+  padding: $pd-xy;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.5s;
+  &:active,
+  &:hover {
+    transform: scale(1.05);
+  }
+  
+}
+
+.buy__button,
+.bought__button {
+  font-size: 20px;
+}
+.bought__button {
+  background-color: $bg-gray;
+  color: $color-white;
+  border: none;
+  padding: $pd-xy;
+  border-radius: 15px;
+  cursor: auto;
+}
