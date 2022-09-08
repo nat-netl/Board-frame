@@ -4,16 +4,17 @@ import s from "./buyGreenButton.module.scss";
 interface IPropsBtn {
   children?: any,
   inBasket?: boolean,
+  inStock?: boolean,
   props?: PropsWithChildren,
   onClick?: React.MouseEventHandler
 }
 
-function BuyGreenButton({ children, inBasket, onClick, ...props}: PropsWithChildren<IPropsBtn>) {
+function BuyGreenButton({ children, inBasket, inStock, onClick, ...props}: PropsWithChildren<IPropsBtn>) {
   console.log (inBasket)
 
   return (
     <button
-      className={inBasket ? s.bought__button : s.buy__button}
+      className={inBasket ? s.bought__button : s.buy__button && inStock ? s.buy__button : s.bought__button  }
       disabled={inBasket}
       onClick={onClick}
     >
