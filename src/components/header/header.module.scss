@@ -11,18 +11,34 @@
   .wrapper {
     padding: 20px 15px;
     display: flex;
-    align-items: center;
-
-    .logo__wrapper {
-      margin-right: 3rem;
-      img {
-        width: 60px;
-        height: 60px;
+    justify-content: space-between;
+    .wrapper__nav {
+      display: flex;
+      align-items: center;
+      .logo__wrapper {
+        margin-right: 3rem;
+        img {
+          width: 60px;
+          height: 60px;
+        }
       }
     }
-
-    @media (max-width: 768px) {
-      justify-content: space-between;
+  }
+  @media (max-width: 768px) {
+    .wrapper {
+      .wrapper__nav {
+        flex-direction: row-reverse;
+        width: 100%;
+        .logo__wrapper {
+          margin-right: 0;
+          width: 100%;
+          text-align: center;
+          img {
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
     }
   }
 }

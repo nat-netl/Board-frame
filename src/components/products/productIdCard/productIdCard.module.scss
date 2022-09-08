@@ -40,3 +40,19 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .product {
+    .buy__card {
+      .info__wrapper {
+        .product__name {
+          flex-direction: column-reverse;
+          flex-wrap: wrap;
+          span {
+            margin: 20px 0 0 0;
+          }
+        }
+      }
+    }
+  }
+}
