@@ -6,7 +6,7 @@
     display: flex;
     flex-wrap: wrap;
     .image__card {
-      max-width: 60%;
+      max-width: 59%;
       padding-right: 20px;
 
       img {
@@ -15,6 +15,7 @@
     }
 
     .info__wrapper {
+      max-width: 40%;
       .product__name {
         display: flex;
         align-items: flex-start;
@@ -34,6 +35,9 @@
         max-width: 100%;
         padding-right: 0;
       }
+      .info__wrapper {
+        max-width: 100%;
+      }
     }
     .bottom__card {
       max-width: 100%;
@@ -52,7 +56,7 @@
             margin: 20px 0 0 0;
           }
         }
-      }
+      }  
     }
   }
 }

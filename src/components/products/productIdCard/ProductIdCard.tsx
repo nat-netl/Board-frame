@@ -40,6 +40,7 @@ function ProductIdCard() {
 
             <BuyGreenButton
               inBasket={isExistsInCard}
+              inStock={product && product[0].instock}
               onClick={() =>
                 dispatch(
                   addToBasket([
@@ -63,7 +64,7 @@ function ProductIdCard() {
                 ? "..."
                 : isExistsInCard
                 ? "Товар уже добавлен"
-                : "Добавить в корзину"}
+                : product && product[0].instock ? "Добавить в корзину" : 'Товара нет в наличии'}
             </BuyGreenButton>
           </div>
         </div>
