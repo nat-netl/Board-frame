@@ -23,6 +23,18 @@
         }
       }
     }
+
+    .basket {
+      .link__to__basket {
+        position: relative;
+        .basket__length {
+          position: absolute;
+          font-size: 14px;
+          font-family: $font-b;
+          line-height: 100%;
+        }
+      }
+    }
   }
   @media (max-width: 768px) {
     .wrapper {

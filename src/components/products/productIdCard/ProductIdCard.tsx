@@ -19,7 +19,6 @@ function ProductIdCard() {
   const isExistsInCard = basket.some(
     (p) => p.id === (product && product[0].id)
   );
-  console.log(basket);
 
   return (
     <div className={s.product}>
