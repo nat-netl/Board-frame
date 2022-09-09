@@ -1,10 +1,10 @@
 import React from "react";
 import ProductList from "./product list/ProductList";
 
-function Products() {
+const Products = () => {
   return (
     <ProductList />
   );
 }
 
-export default Products;
+export default Products

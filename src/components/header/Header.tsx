@@ -7,7 +7,7 @@ import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import { useAppSelector } from "../../hooks/redux";
 import classNames from "classnames";
 
-function Header() {
+const Header = () => {
   const { basket } = useAppSelector((state) => state.basket);
   const basketLength: number = basket.length;
   const [srollTriger, setScrollTriger] = useState<boolean>(false);
@@ -47,6 +47,6 @@ function Header() {
       </div>
     </header>
   );
-}
+};
 
 export default Header;

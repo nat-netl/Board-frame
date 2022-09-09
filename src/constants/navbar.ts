@@ -1,11 +1,11 @@
 import { IRoutesForGuest } from "../types/navbarRoutes";
 
-export const homePath = '/';
-export const keyboardsPath = '/keyboards';
+export const homePath = "/";
+export const keyboardsPath = "/keyboards";
 
-export const routesForGuest:IRoutesForGuest[] = [
+export const routesForGuest: IRoutesForGuest[] = [
   {
-    path: keyboardsPath, 
+    path: keyboardsPath,
     title: "Клавиатуры",
-  }
-]
+  },
+];

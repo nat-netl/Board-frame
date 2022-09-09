@@ -4,8 +4,8 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { IProduct } from "../../../../types/card";
 
-function CardSkeleton({cards}: IProduct | number | any) {
-  console.log (cards)
+const CardSkeleton = ({ cards }: IProduct | number | any) => {
+  console.log(cards);
   return (
     <>
       {Array(cards)
@@ -39,6 +39,6 @@ function CardSkeleton({cards}: IProduct | number | any) {
         ))}
     </>
   );
-}
+};
 
 export default CardSkeleton;

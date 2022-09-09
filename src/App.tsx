@@ -6,7 +6,7 @@ import Footer from "./components/footer/Footer";
 import Keyboards from "./pages/keyboards/Keyboards";
 import ProductIdCard from "./components/products/productIdCard/ProductIdCard";
 
-function App() {
+const App = () => {
   return (
     <>
       <Router basename="/">

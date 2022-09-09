@@ -5,7 +5,7 @@ import s from "./productList.module.scss";
 import m from "./../../../assets/styles/main.module.scss";
 import CardSkeleton from "../../ui/skeletons/cardSkeleton/CardSkeleton";
 
-function ProductList() {
+const ProductList = () => {
   const {
     data: products,
     isLoading,
@@ -35,4 +35,4 @@ function ProductList() {
   );
 }
 
-export default ProductList;
+export default ProductList
