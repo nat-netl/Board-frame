@@ -15,7 +15,7 @@ function BuyGreenButton({ children, inBasket, inStock, onClick, ...props}: Props
   return (
     <button
       className={inBasket ? s.bought__button : s.buy__button && inStock ? s.buy__button : s.bought__button  }
-      disabled={inBasket}
+      disabled={inBasket || !inStock}
       onClick={onClick}
     >
       {children}
