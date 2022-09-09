@@ -4,7 +4,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import classNames from "classnames";
 import NavRoutes from "../../ui/navRoutes/NavRoutes";
 
-function Navbar() {
+const Navbar = () => {
   const [openBurger, setOpenBurger] = useState<boolean>(false);
 
   return (
@@ -28,10 +28,10 @@ function Navbar() {
           openBurger ? s.openListBurger : s.closeListBurger
         )}
       >
-       <NavRoutes openBurger={openBurger} setOpenBurger={setOpenBurger} /> 
+        <NavRoutes openBurger={openBurger} setOpenBurger={setOpenBurger} />
       </ul>
     </nav>
   );
 }
 
-export default Navbar;
+export default Navbar

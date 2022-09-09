@@ -3,7 +3,7 @@ import m from "../../assets/styles/main.module.scss";
 import NavRoutes from "../ui/navRoutes/NavRoutes";
 import s from "./footer.module.scss";
 
-function Footer() {
+const Footer = () => {
   const currentData = new Date().getFullYear() as number;
 
   return (
@@ -16,13 +16,15 @@ function Footer() {
             </div>
           </div>
 
-          <div className={s.copyright}> 
-            <div className={s.text__copyright}>&copy; 2022 - {currentData} БордФрейм</div>
+          <div className={s.copyright}>
+            <div className={s.text__copyright}>
+              &copy; 2022 - {currentData} БордФрейм
+            </div>
           </div>
         </div>
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;

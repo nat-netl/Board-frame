@@ -9,8 +9,9 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { IProduct } from "../../../types/card";
 import BuyGreenButton from "../../ui/buttons/buy-button/BuyGreenButton";
 import Instock from "../../ui/instock/Instock";
+import { priceFormatter } from "../../../helpers/formatter/priceFormatter";
 
-function ProductIdCard() {
+const ProductIdCard = () => {
   const { id }: any = useParams();
   const { data: product, isLoading }: any =
     productAPI.useFetchIdProductQuery<IProduct>(id);
@@ -19,6 +20,9 @@ function ProductIdCard() {
   const isExistsInCard = basket.some(
     (p) => p.id === (product && product[0].id)
   );
+  const RUB = priceFormatter("RUB", product && product[0].price);
+
+  console.log(RUB);
 
   return (
     <div className={s.product}>
@@ -56,15 +60,15 @@ function ProductIdCard() {
                 )
               }
             >
-              {product && (
-                <span className={m.addToBasket}>{product[0].price} ₽</span>
-              )}
+              {product && <span className={m.addToBasket}>{RUB}</span>}
 
               {isLoading
                 ? "..."
                 : isExistsInCard
                 ? "Товар уже добавлен"
-                : product && product[0].instock ? "Добавить в корзину" : 'Товара нет в наличии'}
+                : product && product[0].instock
+                ? "Добавить в корзину"
+                : "Товара нет в наличии"}
             </BuyGreenButton>
           </div>
         </div>
@@ -78,6 +82,6 @@ function ProductIdCard() {
       </div>
     </div>
   );
-}
+};
 
 export default ProductIdCard;
