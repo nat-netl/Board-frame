@@ -1,4 +1,14 @@
 {
+  "brands": [
+    {
+      "id": 0,
+      "brand": "Ducky"
+    },
+    {
+      "id": 1,
+      "brand": "Varmilo"
+    }
+  ],
   "products": [
     {
       "id": 0,

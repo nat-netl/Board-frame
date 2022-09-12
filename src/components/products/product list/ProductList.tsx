@@ -1,16 +1,18 @@
-import React from "react";
-import { productAPI } from "../../../redux/services/ProductService";
+import React, { useEffect } from "react";
 import Product from "../product/Product";
 import s from "./productList.module.scss";
 import m from "./../../../assets/styles/main.module.scss";
 import CardSkeleton from "../../ui/skeletons/cardSkeleton/CardSkeleton";
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
+import { fetchProducts } from "../../../redux/actions/ActionCreators";
 
 const ProductList = () => {
-  const {
-    data: products,
-    isLoading,
-    isError,
-  } = productAPI.useFetchAllProductsQuery(0);
+  const dispatch = useAppDispatch();
+  const { products, isLoading, error } = useAppSelector((state) => state.card);
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
   return (
     <div className={s.products}>
       <div className={m.container}>
@@ -28,11 +30,11 @@ const ProductList = () => {
               />
             ))}
           {isLoading && <CardSkeleton cards={8} />}
-          {isError && <h1>Что-то пошло не так</h1>}
+          {error && <h1>Что-то пошло не так</h1>}
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default ProductList
+export default ProductList;

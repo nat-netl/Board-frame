@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IProduct } from "../../types/card";
+import { IProduct } from "../../types/product";
 
 interface BasketState {
   basket: IProduct[];

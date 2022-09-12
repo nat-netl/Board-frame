@@ -1,11 +1,11 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { productAPI } from "../services/ProductService";
 import basketSlice from "../slices/basket";
-import cardSlice from "../slices/card";
+import productsSlice from "../slices/products";
 
 const reducers = {
   basket: basketSlice,
-  card: cardSlice,
+  card: productsSlice,
   [productAPI.reducerPath]: productAPI.reducer,
 };
 
