@@ -2,10 +2,12 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { productAPI } from "../services/ProductService";
 import basketSlice from "../slices/basket";
 import productsSlice from "../slices/products";
+import filtersSlice from "../slices/filters"
 
 const reducers = {
   basket: basketSlice,
   card: productsSlice,
+  filters: filtersSlice,
   [productAPI.reducerPath]: productAPI.reducer,
 };
 

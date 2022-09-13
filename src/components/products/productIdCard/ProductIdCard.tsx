@@ -8,7 +8,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import BuyGreenButton from "../../ui/buttons/buy-button/BuyGreenButton";
 import Instock from "../../ui/instock/Instock";
 import { priceFormatter } from "../../../helpers/formatter/priceFormatter";
-import { fetchProductsById } from "../../../redux/actions/ActionCreators";
+import { fetchProductsById } from "../../../redux/actions/ProductsActionCreators";
 
 const ProductIdCard = () => {
   const { id }: any = useParams();
@@ -51,6 +51,7 @@ const ProductIdCard = () => {
                   addToBasket([
                     {
                       id: product[0]?.id,
+                      brand: product[0]?.brand,
                       name: product[0]?.name,
                       image: product[0]?.image,
                       price: product[0]?.price,
