@@ -1,13 +1,21 @@
-@import "../../../assets/styles/_variables.scss";
+@import '../../../assets/styles/_variables.scss';
 
-.brand {
-  .title__brands {
+.filter {
+  .title__filter {
     padding-bottom: 0.5rem;
     text-align: left;
+    color: $color-black !important;
+    font-family: $font-b;
   }
-  .items__brands {
+  .items__filter {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
     .brand__btn {
-      
+    }
+    .active__filterBtn {
+      background-color: $color-blue;
+      color: $color-white;
     }
   }
 }

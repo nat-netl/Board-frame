@@ -4,27 +4,41 @@ import { fetchBrands } from "../../../redux/actions/FilterActionCreators";
 import { fetchProducts } from "../../../redux/actions/ProductsActionCreators";
 import { IBrand } from "../../../types/brand";
 import s from "./filtersByBrands.module.scss";
+import m from "./../../../assets/styles/main.module.scss";
+import classNames from "classnames";
 
 const FiltersByBrands = () => {
   const dispatch = useAppDispatch();
   const { filter } = useAppSelector((state) => state.filters);
-  const [filterBrand, setFilterBrand] = useState<IBrand>({ id: 0, brand: "" });
+  const [activeFilterBrand, setActiveFilterBrand] = useState<IBrand>({});
   useEffect(() => {
     dispatch(fetchBrands());
-    dispatch(fetchProducts({ brand: filterBrand.brand }));
-  }, [dispatch, filterBrand]);
+    dispatch(fetchProducts({ brand: activeFilterBrand.brand }));
+  }, [dispatch, activeFilterBrand]);
 
   return (
-    <div className={s.brand}>
-      {filter.map((brand) => (
-        <button
-          key={brand.id}
-          className={s.brand__btn}
-          onClick={() => setFilterBrand({ id: brand.id, brand: brand.brand })}
-        >
-          {brand.brand}
-        </button>
-      ))}
+    <div className={s.filter}>
+      <h3 className={s.title__filter} onClick={() => setActiveFilterBrand({})}>
+        Брэнд
+      </h3>
+      <div className={s.items__filter}>
+        {filter.map((brand) => (
+          <button
+            key={brand.id}
+            className={classNames(
+              m.filterBtn,
+              brand.id === activeFilterBrand.id ? s.active__filterBtn : null
+            )}
+            onClick={() =>
+              brand.id !== activeFilterBrand.id
+                ? setActiveFilterBrand({ id: brand.id, brand: brand.brand })
+                : setActiveFilterBrand({})
+            }
+          >
+            {brand.brand}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };
