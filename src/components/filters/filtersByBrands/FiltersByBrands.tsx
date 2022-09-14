@@ -1,6 +1,4 @@
 import React, {FC, useState, useEffect, memo } from "react";
-import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
-import { fetchBrands } from "../../../redux/actions/FilterActionCreators";
 import { IBrand } from "../../../types/filters";
 import s from "./filtersByBrands.module.scss";
 import m from "./../../../assets/styles/main.module.scss";
@@ -8,15 +6,18 @@ import classNames from "classnames";
 import { Brands } from "../../../constants/initialFilterValues";
 
 
-const FiltersByBrands = () => {
-  const dispatch = useAppDispatch();
+const FiltersByBrands: FC<any> = ({filter, setFilter}) => {
   const [activeFilter, setActiveFilter] = useState<IBrand>({});
+
+  useEffect (() => {
+    setFilter ([...filter, {brand: activeFilter.brand}])
+  }, [activeFilter, setFilter, filter])
 
   const brands = [{id: 0, brand: Brands.Ducky}, {id: 1, brand: Brands.Varmilo}]
 
   return (
     <div className={s.filter}>
-      <h3 className={s.title__filter} onClick={() => setActiveFilter({})}>
+      <h3 className={s.title__filter}>
         Брэнд
       </h3>
       <div className={s.items__filter}>

@@ -12,9 +12,7 @@ const ProductList = () => {
   const dispatch = useAppDispatch();
   const { products, isLoading, error } = useAppSelector((state) => state.card);
   const getFilteredByAll = (values: IFiltersByAll) => {
-    dispatch(fetchProducts({ brand: values.brand, inStock: values.instock }));
-    
-    console.log (values)
+    dispatch(fetchProducts({ brand: values.brand, inStock: values.inStock }));
   };
 
   useEffect(() => {

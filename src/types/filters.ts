@@ -12,7 +12,7 @@ export interface IProductFilters {
 
 export interface IFiltersByAll {
   brand?: string;
-  instock?: boolean;
+  inStock?: boolean;
 }
 
 export const initialFilterValues = {

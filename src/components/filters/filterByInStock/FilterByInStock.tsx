@@ -11,8 +11,9 @@ interface IInStock {
 }
 
 
-const FilterByInStock = () => {
+const FilterByInStock: FC<any> = ({filter, setFilter}) => {
   const [activeFilter, setActiveFilter] = useState<IInStock>({});
+  setFilter({inStock: activeFilter.booleanValue})
   const inStockType: IInStock[] = [
     { id: 0, typeFilterByInStock: Availability.InStock, booleanValue: true },
     { id: 1, typeFilterByInStock: Availability.OutStock, booleanValue: false },
@@ -24,7 +25,7 @@ const FilterByInStock = () => {
 
   return (
     <div className={s.filter}>
-      <h3 className={s.title__filter} onClick={() => setActiveFilter({})}>
+      <h3 className={s.title__filter}>
         Наличие
       </h3>
       <div className={s.items__filter}>
