@@ -4,7 +4,6 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 const CardSkeleton = ({ cards }: number | any) => {
-  console.log(cards);
   return (
     <>
       {Array(cards)
