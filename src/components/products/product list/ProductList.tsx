@@ -6,18 +6,23 @@ import CardSkeleton from "../../ui/skeletons/cardSkeleton/CardSkeleton";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { fetchProducts } from "../../../redux/actions/ProductsActionCreators";
 import FilterList from "../../filters/FiltersList";
+import { IFiltersByAll } from "../../../types/filters";
 
 const ProductList = () => {
   const dispatch = useAppDispatch();
   const { products, isLoading, error } = useAppSelector((state) => state.card);
+  const getFilteredByAll = (values: IFiltersByAll) => {
+    dispatch(fetchProducts({ brand: values.brand, inStock: values.instock }));
+  };
+
   useEffect(() => {
-    dispatch(fetchProducts({}));
-  }, [dispatch]);
+    getFilteredByAll({});
+  }, []);
 
   return (
     <div className={s.products}>
       <div className={m.container}>
-        <FilterList />
+        <FilterList getFilteredByAll={getFilteredByAll} />
 
         <div className={s.products__list}>
           {!isLoading &&

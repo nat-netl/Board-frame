@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { BASE_URL } from "../../constants/baseUrl";
-import { IBrand } from "../../types/brand";
+import { IBrand } from "../../types/filters";
 
 export const fetchBrands = createAsyncThunk(
   "filters",

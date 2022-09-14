@@ -1,46 +1,45 @@
-import React, { useState, useEffect } from "react";
+import React, {FC, useState, useEffect, memo } from "react";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { fetchBrands } from "../../../redux/actions/FilterActionCreators";
-import { fetchProducts } from "../../../redux/actions/ProductsActionCreators";
-import { IBrand } from "../../../types/brand";
+import { IBrand } from "../../../types/filters";
 import s from "./filtersByBrands.module.scss";
 import m from "./../../../assets/styles/main.module.scss";
 import classNames from "classnames";
+import { Brands } from "../../../constants/initialFilterValues";
+
 
 const FiltersByBrands = () => {
   const dispatch = useAppDispatch();
-  const { filter } = useAppSelector((state) => state.filters);
-  const [activeFilterBrand, setActiveFilterBrand] = useState<IBrand>({});
-  useEffect(() => {
-    dispatch(fetchBrands());
-    dispatch(fetchProducts({ brand: activeFilterBrand.brand }));
-  }, [dispatch, activeFilterBrand]);
+  const [activeFilter, setActiveFilter] = useState<IBrand>({});
+
+  const brands = [{id: 0, brand: Brands.Ducky}, {id: 1, brand: Brands.Varmilo}]
 
   return (
     <div className={s.filter}>
-      <h3 className={s.title__filter} onClick={() => setActiveFilterBrand({})}>
+      <h3 className={s.title__filter} onClick={() => setActiveFilter({})}>
         Брэнд
       </h3>
       <div className={s.items__filter}>
-        {filter.map((brand) => (
-          <button
+        {brands.map((brand) => (
+          <input
             key={brand.id}
             className={classNames(
               m.filterBtn,
-              brand.id === activeFilterBrand.id ? s.active__filterBtn : null
+              brand.id === activeFilter.id ? s.active__filterBtn : null
             )}
             onClick={() =>
-              brand.id !== activeFilterBrand.id
-                ? setActiveFilterBrand({ id: brand.id, brand: brand.brand })
-                : setActiveFilterBrand({})
+              brand.id !== activeFilter.id
+                ? setActiveFilter({ id: brand.id, brand: brand.brand })
+                : setActiveFilter({})
             }
-          >
-            {brand.brand}
-          </button>
+            name="brand"
+            type="button"
+            value={brand.brand}
+          />
         ))}
       </div>
     </div>
   );
 };
 
-export default FiltersByBrands;
+export default memo (FiltersByBrands);
