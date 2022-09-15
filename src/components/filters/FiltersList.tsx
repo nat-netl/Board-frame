@@ -1,8 +1,8 @@
-import React, { FC, useEffect, memo, useRef, useState } from "react";
+import React, { FC, useEffect, memo, useState } from "react";
 import s from "./filtersList.module.scss";
-import FiltersByBrands from "./filtersByBrands/FiltersByBrands";
+import FilterByBrands from "./filtersByBrands/FilterByBrands";
 import FilterByInStock from "./filterByInStock/FilterByInStock";
-import { IFiltersByAll } from "../../types/filters";
+import { IProductFilters } from "../../types/filters";
 
 interface IFiltersStack {
   id: number;
@@ -10,7 +10,7 @@ interface IFiltersStack {
 }
 
 const FiltersList: FC<any> = ({ getFilteredByAll }) => {
-  const [filter, setFilter] = useState<IFiltersByAll>({});
+  const [filter, setFilter] = useState<IProductFilters>({});
 
   useEffect(() => {
     getFilteredByAll({ brand: filter.brand, inStock: filter.inStock });
@@ -20,10 +20,7 @@ const FiltersList: FC<any> = ({ getFilteredByAll }) => {
     {
       id: 0,
       component: (
-        <FiltersByBrands 
-          filterBrand={filter} 
-          setFilterBrand={setFilter} 
-        />
+        <FilterByBrands filterBrand={filter} setFilterBrand={setFilter} />
       ),
     },
     {

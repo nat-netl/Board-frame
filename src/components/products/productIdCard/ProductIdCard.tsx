@@ -17,7 +17,6 @@ const ProductIdCard = () => {
   const {
     products: product,
     isLoading,
-    error,
   } = useAppSelector((state) => state.card);
   useEffect(() => {
     dispatch(fetchProductsById(id));

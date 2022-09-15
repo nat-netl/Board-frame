@@ -1,4 +1,8 @@
-import { Availability, Brands } from "../constants/initialFilterValues";
+export interface IAvalibility {
+  id?: number;
+  typeFilterByInStock?: string;
+  booleanValue?: boolean;
+}
 
 export interface IBrand {
   id?: number,
@@ -8,18 +12,4 @@ export interface IBrand {
 export interface IProductFilters {
   brand?: string | undefined,
   inStock?: boolean | string | undefined 
-}
-
-export interface IFiltersByAll {
-  brand?: string;
-  inStock?: boolean;
-}
-
-export const initialFilterValues = {
-  availability: Availability,
-  brands: Brands
-}
-
-export interface IFilterFormProps extends IFiltersByAll {
-  getFilteredResult: (values: IFiltersByAll) => Promise<void>;
 }

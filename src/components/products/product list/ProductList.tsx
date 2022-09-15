@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Product from "../product/Product";
 import s from "./productList.module.scss";
 import m from "./../../../assets/styles/main.module.scss";
@@ -6,12 +6,12 @@ import CardSkeleton from "../../ui/skeletons/cardSkeleton/CardSkeleton";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { fetchProducts } from "../../../redux/actions/ProductsActionCreators";
 import FilterList from "../../filters/FiltersList";
-import { IFiltersByAll } from "../../../types/filters";
+import { IProductFilters } from "../../../types/filters";
 
 const ProductList = () => {
   const dispatch = useAppDispatch();
   const { products, isLoading, error } = useAppSelector((state) => state.card);
-  const getFilteredByAll = (values: IFiltersByAll) => {
+  const getFilteredByAll = (values: IProductFilters) => {
     dispatch(fetchProducts({ brand: values.brand, inStock: values.inStock }));
   };
 
@@ -42,7 +42,7 @@ const ProductList = () => {
           
         </div>
         {error && <h2>{error}</h2>}
-          {products.length <= 0 ? <h2>По вашему запросу ничего не найдено</h2> : null}
+        {products.length <= 0 ? <h2>По вашему запросу ничего не найдено</h2> : null}
       </div>
     </div>
   );

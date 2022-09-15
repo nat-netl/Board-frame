@@ -2,24 +2,15 @@ import React, { FC, useState, useEffect, memo } from "react";
 import s from "./filterByInStock.module.scss";
 import m from "./../../../assets/styles/main.module.scss";
 import classNames from "classnames";
-import { Availability } from "../../../constants/initialFilterValues";
-
-interface IInStock {
-  id?: number;
-  typeFilterByInStock?: string;
-  booleanValue?: boolean;
-}
+import { IAvalibility } from "../../../types/filters";
+import { InitialFiltersByIAvalibility } from "../../../constants/initialFilterValues";
 
 const FilterByInStock: FC<any> = ({
   filterAvailability,
   setFilterAvailability,
 }) => {
-  const [activeFilter, setActiveFilter] = useState<IInStock>({});
+  const [activeFilter, setActiveFilter] = useState<IAvalibility>({});
 
-  const inStockType: IInStock[] = [
-    { id: 0, typeFilterByInStock: Availability.InStock, booleanValue: true },
-    { id: 1, typeFilterByInStock: Availability.OutStock, booleanValue: false },
-  ];
   useEffect(() => {
     setFilterAvailability({
       ...filterAvailability,
@@ -31,7 +22,7 @@ const FilterByInStock: FC<any> = ({
     <div className={s.filter}>
       <h3 className={s.title__filter}>Наличие</h3>
       <div className={s.items__filter}>
-        {inStockType.map((instock) => (
+        {InitialFiltersByIAvalibility.map((instock) => (
           <input
             key={instock.id}
             className={classNames(
