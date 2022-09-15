@@ -39,8 +39,10 @@ const ProductList = () => {
               />
             ))}
           {isLoading && <CardSkeleton cards={8} />}
-          {error && error}
+          
         </div>
+        {error && <h2>{error}</h2>}
+          {products.length <= 0 ? <h2>По вашему запросу ничего не найдено</h2> : null}
       </div>
     </div>
   );

@@ -9,25 +9,44 @@ interface IFiltersStack {
   component: JSX.Element;
 }
 
-const FiltersList: FC<any> = ({getFilteredByAll}) => {
-  const [filter, setFilter] = useState<IFiltersByAll[]>([{}])
-  console.log (filter)
+const FiltersList: FC<any> = ({ getFilteredByAll }) => {
+  const [filter, setFilter] = useState<IFiltersByAll>({});
+
+  useEffect(() => {
+    getFilteredByAll({ brand: filter.brand, inStock: filter.inStock });
+  }, [filter]);
 
   const filtersStack: IFiltersStack[] = [
-    { id: 0, component: <FiltersByBrands   setFilter={setFilter} /> },
-    { id: 1, component: <FilterByInStock  setFilter={setFilter} /> },
+    {
+      id: 0,
+      component: (
+        <FiltersByBrands 
+          filterBrand={filter} 
+          setFilterBrand={setFilter} 
+        />
+      ),
+    },
+    {
+      id: 1,
+      component: (
+        <FilterByInStock
+          filterAvailability={filter}
+          setFilterAvailability={setFilter}
+        />
+      ),
+    },
   ];
 
   return (
     <div className={s.wrapper}>
       <div className={s.wrapper__filters}>
-        <form className={s.filter__row} onSubmit={getFilteredByAll}>
+        <div className={s.filter__row}>
           {filtersStack.map((filter) => (
             <div key={filter.id} className={s.filter__column}>
               {filter.component}
             </div>
           ))}
-        </form>
+        </div>
       </div>
     </div>
   );

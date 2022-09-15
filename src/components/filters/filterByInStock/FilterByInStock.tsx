@@ -10,24 +10,26 @@ interface IInStock {
   booleanValue?: boolean;
 }
 
-
-const FilterByInStock: FC<any> = ({filter, setFilter}) => {
+const FilterByInStock: FC<any> = ({
+  filterAvailability,
+  setFilterAvailability,
+}) => {
   const [activeFilter, setActiveFilter] = useState<IInStock>({});
-  setFilter({inStock: activeFilter.booleanValue})
+
   const inStockType: IInStock[] = [
     { id: 0, typeFilterByInStock: Availability.InStock, booleanValue: true },
     { id: 1, typeFilterByInStock: Availability.OutStock, booleanValue: false },
   ];
-
-  // useEffect(() => {
-  //   console.log (filterByInStock({ instock: activeFilter.booleanValue }));
-  // }, [activeFilter]);
+  useEffect(() => {
+    setFilterAvailability({
+      ...filterAvailability,
+      inStock: activeFilter.booleanValue,
+    });
+  }, [activeFilter]);
 
   return (
     <div className={s.filter}>
-      <h3 className={s.title__filter}>
-        Наличие
-      </h3>
+      <h3 className={s.title__filter}>Наличие</h3>
       <div className={s.items__filter}>
         {inStockType.map((instock) => (
           <input

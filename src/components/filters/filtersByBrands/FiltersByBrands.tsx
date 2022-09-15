@@ -1,25 +1,24 @@
-import React, {FC, useState, useEffect, memo } from "react";
+import React, { FC, useState, useEffect, memo } from "react";
 import { IBrand } from "../../../types/filters";
 import s from "./filtersByBrands.module.scss";
 import m from "./../../../assets/styles/main.module.scss";
 import classNames from "classnames";
 import { Brands } from "../../../constants/initialFilterValues";
 
-
-const FiltersByBrands: FC<any> = ({filter, setFilter}) => {
+const FiltersByBrands: FC<any> = ({ setFilterBrand, filterBrand }) => {
   const [activeFilter, setActiveFilter] = useState<IBrand>({});
+  const brands = [
+    { id: 0, brand: Brands.Ducky },
+    { id: 1, brand: Brands.Varmilo },
+  ];
 
-  useEffect (() => {
-    setFilter ([...filter, {brand: activeFilter.brand}])
-  }, [activeFilter, setFilter, filter])
-
-  const brands = [{id: 0, brand: Brands.Ducky}, {id: 1, brand: Brands.Varmilo}]
+  useEffect(() => {
+    setFilterBrand({ ...filterBrand, brand: activeFilter.brand });
+  }, [activeFilter]);
 
   return (
     <div className={s.filter}>
-      <h3 className={s.title__filter}>
-        Брэнд
-      </h3>
+      <h3 className={s.title__filter}>Брэнд</h3>
       <div className={s.items__filter}>
         {brands.map((brand) => (
           <input
@@ -43,4 +42,4 @@ const FiltersByBrands: FC<any> = ({filter, setFilter}) => {
   );
 };
 
-export default memo (FiltersByBrands);
+export default memo(FiltersByBrands);
