@@ -8,6 +8,7 @@ import { fetchProducts } from "../../../redux/actions/ProductsActionCreators";
 import FilterList from "../../filters/FiltersList";
 import { IProductFilters } from "../../../types/filters";
 import { IProductsInHomePage } from "../../../types/product";
+import MoreLink from "../../ui/links/more-button/MoreLink";
 
 const ProductList: FC<IProductsInHomePage> = ({ inHomePage }) => {
   const dispatch = useAppDispatch();
@@ -67,6 +68,7 @@ const ProductList: FC<IProductsInHomePage> = ({ inHomePage }) => {
         {products.length <= 0 ? (
           <h2>По вашему запросу ничего не найдено</h2>
         ) : null}
+        {inHomePage === "/" && <div className={s.more__link}><MoreLink link="keyboards">Показать все</MoreLink></div>}
       </div>
     </div>
   );

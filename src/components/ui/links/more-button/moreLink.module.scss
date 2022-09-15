@@ -1,0 +1,15 @@
+@import "./../../../../assets/styles/_variables.scss";
+
+.btn__link {
+  background-color: $color-white;
+  border: 1px solid $color-light-gray;
+  font-family: $font-b;
+  padding: $pd-xy;
+  border-radius: 25px;
+  margin-top: 25px;
+
+  &:hover {
+    background-color: $color-light-gray;
+    color: $color-black;
+  }
+}

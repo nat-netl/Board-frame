@@ -11,6 +11,12 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-gap: 2rem;
   }
+
+  .more__link {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 @media (max-width: 1500px) {

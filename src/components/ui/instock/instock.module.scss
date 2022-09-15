@@ -24,7 +24,8 @@
   flex-flow: row wrap;
   z-index: 2;
   font-family: $font-b;
-
+  white-space: nowrap;
+  
   span {
     color: $color-white;
     background-color: $bg-gray;
