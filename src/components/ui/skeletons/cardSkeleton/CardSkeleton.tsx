@@ -2,10 +2,8 @@ import React from "react";
 import s from "./CardSkeleton.module.scss";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { IProduct } from "../../../../types/card";
 
-const CardSkeleton = ({ cards }: IProduct | number | any) => {
-  console.log(cards);
+const CardSkeleton = ({ cards }: number | any) => {
   return (
     <>
       {Array(cards)

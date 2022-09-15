@@ -1,7 +1,18 @@
 {
+  "brands": [
+    {
+      "id": 0,
+      "brand": "Ducky"
+    },
+    {
+      "id": 1,
+      "brand": "Varmilo"
+    }
+  ],
   "products": [
     {
       "id": 0,
+      "brand": "Ducky",
       "name": "Ducky One 3 Mini Black",
       "image": "https://static.insales-cdn.com/images/products/1/4161/582332481/1.jpg",
       "price": 11490,
@@ -10,6 +21,7 @@
     },
     {
       "id": 1,
+      "brand": "Varmilo",
       "name": "Varmilo Panda R2 VEA87",
       "image": "https://static.insales-cdn.com/images/products/1/981/496165845/Varmilo_Panda_87_rus.jpg",
       "price": 12990,
@@ -18,6 +30,7 @@
     },
     {
       "id": 2,
+      "brand": "Varmilo",
       "name": "Varmilo Moonlight V2 (EC Switch V2) VEM87",
       "image": "https://static.insales-cdn.com/images/products/1/585/500089417/1_Varmilo_Moonlight_87_white.jpg",
       "price": 14490,
@@ -26,6 +39,7 @@
     },
     {
       "id": 3,
+      "brand": "Ducky",
       "name": "Ducky One 3 SF Daybreak",
       "image": "https://static.insales-cdn.com/images/products/1/2798/582331118/1.jpg",
       "price": 13380,
@@ -34,6 +48,7 @@
     },
     {
       "id": 4,
+      "brand": "Varmilo",
       "name": "Varmilo Vintage Days CMYK V2 VEA87",
       "image": "https://static.insales-cdn.com/images/products/1/1642/526984810/1.jpg",
       "price": 13490,
@@ -42,6 +57,7 @@
     },
     {
       "id": 5,
+      "brand": "Ducky",
       "name": "Ducky One 3 Mini Black",
       "image": "https://static.insales-cdn.com/images/products/1/4161/582332481/1.jpg",
       "price": 11490,
@@ -50,6 +66,7 @@
     },
     {
       "id": 6,
+      "brand": "Ducky",
       "name": "Ducky One 3 TKL Fuji",
       "image": "https://static.insales-cdn.com/images/products/1/2745/582322873/1.jpg",
       "price": 11180,

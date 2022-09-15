@@ -1,12 +1,12 @@
-import React from 'react'
-import Products from '../../components/products/Products'
+import React from "react";
+import Products from "../../components/products/Products";
 
-function Keyboards() {
+const Keyboards = () => {
   return (
     <>
       <Products />
     </>
-  )
-}
+  );
+};
 
-export default Keyboards
+export default Keyboards;
