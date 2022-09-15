@@ -1,12 +1,15 @@
-import React from 'react'
-import s from '../../assets/styles/main.module.scss'
+import React from "react";
+import { useLocation } from "react-router-dom";
+import Products from "../../components/products/Products";
 
-function Home() {
+const Home = () => {
+  const inHomePage: string = useLocation().pathname;
+
   return (
-    <div className={s.сontainer}>
-      
-    </div>
-  )
-}
+    <>
+      <Products inHomePage={inHomePage} />
+    </>
+  );
+};
 
-export default Home
+export default Home;

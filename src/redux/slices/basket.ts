@@ -20,14 +20,12 @@ const basketSlice = createSlice({
     addToBasket: (state, action: PayloadAction<IProduct[]>) => {
       state.basket = [...state.basket, ...action.payload];
     },
-    addedToBasket: (state: any) => {
-      state.basket = state.basket.find((item: any) => item.id === state.payload);
-    },
+    
   },
 });
 
 export const cardSelector = {
   getBasket: (state: any) => state.basket,
 };
-export const { addToBasket, addedToBasket } = basketSlice.actions;
+export const { addToBasket } = basketSlice.actions;
 export default basketSlice.reducer;

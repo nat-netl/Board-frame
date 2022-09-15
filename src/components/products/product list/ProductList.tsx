@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, FC, memo } from "react";
 import Product from "../product/Product";
 import s from "./productList.module.scss";
 import m from "./../../../assets/styles/main.module.scss";
@@ -7,8 +7,9 @@ import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { fetchProducts } from "../../../redux/actions/ProductsActionCreators";
 import FilterList from "../../filters/FiltersList";
 import { IProductFilters } from "../../../types/filters";
+import { IProductsInHomePage } from "../../../types/product";
 
-const ProductList = () => {
+const ProductList: FC<IProductsInHomePage> = ({inHomePage}) => {
   const dispatch = useAppDispatch();
   const { products, isLoading, error } = useAppSelector((state) => state.card);
   const getFilteredByAll = (values: IProductFilters) => {
@@ -19,11 +20,17 @@ const ProductList = () => {
     getFilteredByAll({});
   }, []);
 
+  if (products.length > 3) {
+    products.slice(0, 5);
+  }
+
   return (
     <div className={s.products}>
       <div className={m.container}>
-        <FilterList getFilteredByAll={getFilteredByAll} />
-
+        {
+          inHomePage !== "/" && <FilterList getFilteredByAll={getFilteredByAll} />
+        }
+        
         <div className={s.products__list}>
           {!isLoading &&
             products.map((product) => (
@@ -48,4 +55,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default memo (ProductList);
