@@ -1,15 +1,15 @@
 import React, { FC, useState, useEffect, memo } from "react";
-import { IBrand } from "../../../types/filters";
+import { IBrand, IFilterState } from "../../../types/filters";
 import s from "./filtersByBrands.module.scss";
 import m from "./../../../assets/styles/main.module.scss";
 import classNames from "classnames";
 import { InitialFiltersByBrands } from "../../../constants/initialFilterValues";
 
-const FilterByBrands: FC<any> = ({ setFilterBrand, filterBrand }) => {
+const FilterByBrands: FC<IFilterState> = ({ filter, setFilter }) => {
   const [activeFilter, setActiveFilter] = useState<IBrand>({});
 
   useEffect(() => {
-    setFilterBrand({ ...filterBrand, brand: activeFilter.brand });
+    setFilter({ ...filter, brand: activeFilter.brand });
   }, [activeFilter]);
 
   return (

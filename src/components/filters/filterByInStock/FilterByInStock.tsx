@@ -2,18 +2,18 @@ import React, { FC, useState, useEffect, memo } from "react";
 import s from "./filterByInStock.module.scss";
 import m from "./../../../assets/styles/main.module.scss";
 import classNames from "classnames";
-import { IAvalibility } from "../../../types/filters";
+import { IAvalibility, IFilterState } from "../../../types/filters";
 import { InitialFiltersByIAvalibility } from "../../../constants/initialFilterValues";
 
-const FilterByInStock: FC<any> = ({
-  filterAvailability,
-  setFilterAvailability,
+const FilterByInStock: FC<IFilterState> = ({
+  filter,
+  setFilter,
 }) => {
   const [activeFilter, setActiveFilter] = useState<IAvalibility>({});
 
   useEffect(() => {
-    setFilterAvailability({
-      ...filterAvailability,
+    setFilter({
+      ...filter,
       inStock: activeFilter.booleanValue,
     });
   }, [activeFilter]);
