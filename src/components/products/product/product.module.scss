@@ -8,6 +8,10 @@
   .product__image {
     object-fit: cover;
     margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
     img {
       width: 100%;
     }
