@@ -28,7 +28,7 @@ const FilterByBrands: FC<IFilterState> = ({ filter, setFilter }) => {
                 ? setActiveFilter({ id: brand.id, brand: brand.brand })
                 : setActiveFilter({})
             }
-            name="brand"
+            name={brand.brand}
             type="button"
             value={brand.brand}
           />

@@ -9,7 +9,7 @@ import FilterList from "../../filters/FiltersList";
 import { IProductFilters } from "../../../types/filters";
 import { IProductsInHomePage } from "../../../types/product";
 
-const ProductList: FC<IProductsInHomePage> = ({inHomePage}) => {
+const ProductList: FC<IProductsInHomePage> = ({ inHomePage }) => {
   const dispatch = useAppDispatch();
   const { products, isLoading, error } = useAppSelector((state) => state.card);
   const getFilteredByAll = (values: IProductFilters) => {
@@ -27,12 +27,13 @@ const ProductList: FC<IProductsInHomePage> = ({inHomePage}) => {
   return (
     <div className={s.products}>
       <div className={m.container}>
-        {
-          inHomePage !== "/" && <FilterList getFilteredByAll={getFilteredByAll} />
-        }
-        
+        {inHomePage !== "/" && (
+          <FilterList getFilteredByAll={getFilteredByAll} />
+        )}
+
         <div className={s.products__list}>
           {!isLoading &&
+            inHomePage !== "/" &&
             products.map((product) => (
               <Product
                 key={product.id}
@@ -45,14 +46,30 @@ const ProductList: FC<IProductsInHomePage> = ({inHomePage}) => {
                 description={product.description}
               />
             ))}
+
+          {!isLoading &&
+            inHomePage === "/" &&
+            products.slice(0, 8).map((product) => (
+              <Product
+                key={product.id}
+                id={product.id}
+                brand={product.brand}
+                name={product.name}
+                image={product.image}
+                price={product.price}
+                instock={product.instock}
+                description={product.description}
+              />
+            ))}
           {isLoading && <CardSkeleton cards={8} />}
-          
         </div>
         {error && <h2>{error}</h2>}
-        {products.length <= 0 ? <h2>По вашему запросу ничего не найдено</h2> : null}
+        {products.length <= 0 ? (
+          <h2>По вашему запросу ничего не найдено</h2>
+        ) : null}
       </div>
     </div>
   );
 };
 
-export default memo (ProductList);
+export default memo(ProductList);
