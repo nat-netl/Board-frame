@@ -1,0 +1,19 @@
+@import './../../assets/styles/_variables.scss';
+
+.wrapper {
+  background-color: $color-contrast-hight;
+  color: $color-white;
+
+  .search {
+    display: flex;
+    justify-content: center;
+
+    .search__column {
+      width: 700px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
