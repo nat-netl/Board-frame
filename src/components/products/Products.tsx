@@ -1,10 +1,9 @@
-import React, {FC} from "react";
-import { IProductsInHomePage } from "../../types/product";
+import React from "react";
 import ProductList from "./product list/ProductList";
 
-const Products: FC<IProductsInHomePage> = ({inHomePage}) => {
+const Products = () => {
   return (
-    <ProductList inHomePage={inHomePage} />
+    <ProductList />
   );
 }
 

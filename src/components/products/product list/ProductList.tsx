@@ -7,11 +7,12 @@ import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { fetchProducts } from "../../../redux/actions/ProductsActionCreators";
 import FilterList from "../../filters/FiltersList";
 import { IProductFilters } from "../../../types/filters";
-import { IProductsInHomePage } from "../../../types/product";
 import MoreLink from "../../ui/links/more-button/MoreLink";
-import H1ForCatalog from "../../ui/h1/h1ForCatalog/H1ForCatalog";
+import H1ForCatalog from "../../ui/h1/h1ForCatalog/H1ForProducts";
+import { routesForGuest } from "../../../constants/navbar";
+import { useLocation } from "react-router-dom";
 
-const ProductList: FC<IProductsInHomePage> = ({ inHomePage }) => {
+const ProductList = () => {
   const dispatch = useAppDispatch();
   const { products, isLoading, error } = useAppSelector((state) => state.card);
   const getFilteredByAll = (values: IProductFilters) => {
@@ -22,20 +23,30 @@ const ProductList: FC<IProductsInHomePage> = ({ inHomePage }) => {
     getFilteredByAll({});
   }, []);
 
+  const currentRouter = useLocation().pathname;
+
+  console.log(routesForGuest);
+  console.log(currentRouter);
+
   return (
     <div className={s.products}>
       <div className={m.container}>
         <header className={s.products__header}>
-          <H1ForCatalog>Клавиатуры</H1ForCatalog>
+          {routesForGuest.map(
+            (route) =>
+              route.path === currentRouter && (
+                <H1ForCatalog>{route.title}</H1ForCatalog>
+              )
+          )}
         </header>
 
-        {inHomePage !== "/" && (
+        {currentRouter !== "/" && (
           <FilterList getFilteredByAll={getFilteredByAll} />
         )}
 
         <div className={s.products__list}>
           {!isLoading &&
-            inHomePage !== "/" &&
+            currentRouter !== "/" &&
             products.map((product) => (
               <Product
                 key={product.id}
@@ -50,26 +61,32 @@ const ProductList: FC<IProductsInHomePage> = ({ inHomePage }) => {
             ))}
 
           {!isLoading &&
-            inHomePage === "/" &&
-            products.slice(0, 8).map((product) => (
-              <Product
-                key={product.id}
-                id={product.id}
-                brand={product.brand}
-                name={product.name}
-                image={product.image}
-                price={product.price}
-                instock={product.instock}
-                description={product.description}
-              />
-            ))}
+            currentRouter === "/" &&
+            products
+              .slice(0, 8)
+              .map((product) => (
+                <Product
+                  key={product.id}
+                  id={product.id}
+                  brand={product.brand}
+                  name={product.name}
+                  image={product.image}
+                  price={product.price}
+                  instock={product.instock}
+                  description={product.description}
+                />
+              ))}
           {isLoading && <CardSkeleton cards={8} />}
         </div>
         {error && <h2>{error}</h2>}
         {products.length <= 0 ? (
           <h2>По вашему запросу ничего не найдено</h2>
         ) : null}
-        {inHomePage === "/" && <div className={s.more__link}><MoreLink link="keyboards">Показать все</MoreLink></div>}
+        {currentRouter === "/" && (
+          <div className={s.more__link}>
+            <MoreLink link="keyboards">Показать все</MoreLink>
+          </div>
+        )}
       </div>
     </div>
   );

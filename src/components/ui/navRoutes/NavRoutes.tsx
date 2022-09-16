@@ -19,6 +19,7 @@ const NavRoutes = ({
       {title && <h3>{title}</h3>}
       {routesForGuest &&
         routesForGuest.map((route, index) => (
+          route.consider === true && 
           <li
             onClick={() => setOpenBurger(false)}
             key={index}
