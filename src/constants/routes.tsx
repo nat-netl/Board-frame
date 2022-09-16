@@ -35,6 +35,7 @@ export const routesForGuest: IRoutesForGuest[] = [
 
 export const privateRoutes: IPrivateRoutes[] = [
   { path: "/", element: <Home /> },
+  { path: "/:id", element: <ProductIdCard /> },
   { path: "/keyboards", element: <Keyboards /> },
   { path: "/keyboards/:id", element: <ProductIdCard /> },
   { path: "/search", element: <Search /> },
