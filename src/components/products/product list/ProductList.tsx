@@ -9,7 +9,7 @@ import FilterList from "../../filters/FiltersList";
 import { IProductFilters } from "../../../types/filters";
 import MoreLink from "../../ui/links/more-button/MoreLink";
 import H1ForCatalog from "../../ui/h1/h1ForCatalog/H1ForProducts";
-import { routesForGuest } from "../../../constants/navbar";
+import { routesForGuest } from "../../../constants/routes";
 import { useLocation } from "react-router-dom";
 
 const ProductList = () => {

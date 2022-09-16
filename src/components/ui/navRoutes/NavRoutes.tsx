@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from "react";
 import { Link } from "react-router-dom";
-import { routesForGuest } from "../../../constants/navbar";
+import { routesForGuest } from "../../../constants/routes";
 import s from "./navRoutes.module.scss";
 
 interface IRoutesProps {
