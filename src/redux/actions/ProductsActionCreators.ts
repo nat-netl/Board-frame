@@ -3,6 +3,7 @@ import axios from "axios";
 import { BASE_URL } from "../../constants/baseUrl";
 import { IProductFilters } from "../../types/filters";
 import { IProduct } from "../../types/product";
+import { ISearch } from "../../types/search";
 
 // export const fetchProducts = () => async (dispatch: AppDispatch) => {
 //   try {
@@ -16,12 +17,13 @@ import { IProduct } from "../../types/product";
 
 export const fetchProducts = createAsyncThunk(
   "products",
-  async (value: IProductFilters, {rejectWithValue}) => {
+  async (value: ISearch, {rejectWithValue}) => {
     try {
       const response = await axios.get<IProduct[]>(`${BASE_URL}products`, {
         params: {
           brand_like: value.brand,
-          instock_like: value.inStock
+          instock_like: value.inStock,
+          name_like: value.name
         },
       });
       return response.data;
