@@ -10,16 +10,14 @@ const App = () => {
       <Router basename="/">
         <Header />
         <Routes>
-          {
-            privateRoutes.map ((route) => (
-              <Route path={route.path} element={route.element} />
-            ))
-          }
+          {privateRoutes.map((route, index) => (
+            <Route key={index} path={route.path} element={route.element} />
+          ))}
         </Routes>
         <Footer />
       </Router>
     </>
   );
-}
+};
 
 export default App;

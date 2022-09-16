@@ -38,5 +38,6 @@ export const privateRoutes: IPrivateRoutes[] = [
   { path: "/keyboards", element: <Keyboards /> },
   { path: "/keyboards/:id", element: <ProductIdCard /> },
   { path: "/search", element: <Search /> },
+  { path: "/search/:id", element: <ProductIdCard /> },
   { path: "/basket", element: <Basket /> },
 ];
