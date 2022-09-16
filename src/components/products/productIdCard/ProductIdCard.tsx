@@ -31,9 +31,9 @@ const ProductIdCard = () => {
           <div className={s.image__card}>
             <LazyLoadImage
               effect="blur"
-              src={product[0]?.image}
+              src={product[0]?.big_image}
               alt={product[0]?.name}
-              placeholderSrc={product[0]?.image}
+              placeholderSrc={product[0]?.big_image}
             />
           </div>
           <div className={s.info__wrapper}>
@@ -53,6 +53,7 @@ const ProductIdCard = () => {
                       brand: product[0]?.brand,
                       name: product[0]?.name,
                       image: product[0]?.image,
+                      big_image: product[0]?.big_image,
                       price: product[0]?.price,
                       description: product[0]?.description,
                       instock: product[0]?.instock,

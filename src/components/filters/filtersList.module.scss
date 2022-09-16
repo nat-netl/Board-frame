@@ -13,7 +13,7 @@
       border-radius: 2rem;
       .filter__column {
         border-bottom: none;
-        border-right: 1px solid $color-light-gray;
+        border: none;
         width: 100%;
         padding: 1rem;
         &:last-child {
@@ -25,6 +25,10 @@
     @media only screen and (min-width: 1024px) {
       .filter__row {
         grid-template-columns: repeat(5, 1fr);
+
+        .filter__column {
+          border-right: 1px solid $color-light-gray;
+        }
       }
     }
   }

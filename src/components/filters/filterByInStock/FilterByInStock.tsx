@@ -2,18 +2,16 @@ import React, { FC, useState, useEffect, memo } from "react";
 import s from "./filterByInStock.module.scss";
 import m from "./../../../assets/styles/main.module.scss";
 import classNames from "classnames";
-import { IAvalibility } from "../../../types/filters";
+import { IAvalibility, IFilterState } from "../../../types/filters";
 import { InitialFiltersByIAvalibility } from "../../../constants/initialFilterValues";
+import InputFilterButton from "../../ui/inputs/inputFilterButton/InputFilterButton";
 
-const FilterByInStock: FC<any> = ({
-  filterAvailability,
-  setFilterAvailability,
-}) => {
+const FilterByInStock: FC<IFilterState> = ({ filter, setFilter }) => {
   const [activeFilter, setActiveFilter] = useState<IAvalibility>({});
 
   useEffect(() => {
-    setFilterAvailability({
-      ...filterAvailability,
+    setFilter({
+      ...filter,
       inStock: activeFilter.booleanValue,
     });
   }, [activeFilter]);
@@ -23,7 +21,7 @@ const FilterByInStock: FC<any> = ({
       <h3 className={s.title__filter}>Наличие</h3>
       <div className={s.items__filter}>
         {InitialFiltersByIAvalibility.map((instock) => (
-          <input
+          <InputFilterButton
             key={instock.id}
             className={classNames(
               m.filterBtn,
@@ -38,8 +36,7 @@ const FilterByInStock: FC<any> = ({
                   })
                 : setActiveFilter({})
             }
-            type="button"
-            name="inStock"
+            name={instock.typeFilterByInStock}
             value={instock.typeFilterByInStock}
           />
         ))}

@@ -16,8 +16,6 @@ const BuyGreenButton = ({
   onClick,
   ...props
 }: PropsWithChildren<IPropsBtn>) => {
-  console.log(inBasket);
-
   return (
     <button
       className={

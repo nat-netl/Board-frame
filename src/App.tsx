@@ -1,10 +1,8 @@
 import React from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Home from "./pages/home/Home";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
-import Keyboards from "./pages/keyboards/Keyboards";
-import ProductIdCard from "./components/products/productIdCard/ProductIdCard";
+import { privateRoutes } from "./constants/routes";
 
 const App = () => {
   return (
@@ -12,14 +10,14 @@ const App = () => {
       <Router basename="/">
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/keyboards" element={<Keyboards />} />
-          <Route path="/keyboards/:id" element={<ProductIdCard />} />
+          {privateRoutes.map((route, index) => (
+            <Route key={index} path={route.path} element={route.element} />
+          ))}
         </Routes>
         <Footer />
       </Router>
     </>
   );
-}
+};
 
 export default App;

@@ -1,0 +1,18 @@
+@import "./../../../../assets/styles/_variables.scss";
+
+.input__search {
+  border: none;
+  height: 4rem;
+  margin-right: -4rem;
+  cursor: pointer;
+  transition: box-shadow .2s;
+  outline: none;
+  padding: 0 92px 0 30px;
+  border-radius: 20px;
+  width: calc(100% + 4rem);
+  border: 4px solid transparent;
+
+  &:focus {
+    border: 4px solid $color-blue;
+  }
+}

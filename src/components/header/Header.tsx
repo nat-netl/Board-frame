@@ -6,6 +6,8 @@ import Navbar from "./navbar/Navbar";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import { useAppSelector } from "../../hooks/redux";
 import classNames from "classnames";
+import SearchIcon from '@mui/icons-material/Search';
+import { basketPath, searchPath } from "../../constants/routes";
 
 const Header = () => {
   const { basket } = useAppSelector((state) => state.basket);
@@ -34,8 +36,12 @@ const Header = () => {
           </div>
           <Navbar />
         </div>
-        <div className={s.basket}>
-          <Link className={s.link__to__basket} to="/basket">
+        <div className={s.icons__list}>
+          <Link className={s.link__to__searching} to={searchPath}>
+            <SearchIcon />
+          </Link>
+          
+          <Link className={s.link__to__basket} to={basketPath}>
             <LocalMallOutlinedIcon sx={{ fontSize: 26 }} />
             {basketLength !== 0 ? (
               <span className={s.basket__length}>{basketLength}</span>

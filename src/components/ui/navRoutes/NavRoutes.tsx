@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from "react";
 import { Link } from "react-router-dom";
-import { routesForGuest } from "../../../constants/navbar";
+import { routesForGuest } from "../../../constants/routes";
 import s from "./navRoutes.module.scss";
 
 interface IRoutesProps {
@@ -19,6 +19,7 @@ const NavRoutes = ({
       {title && <h3>{title}</h3>}
       {routesForGuest &&
         routesForGuest.map((route, index) => (
+          route.consider === true && 
           <li
             onClick={() => setOpenBurger(false)}
             key={index}
