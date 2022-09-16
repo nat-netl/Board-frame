@@ -1,51 +1,31 @@
 @import './../../../assets/styles/_variables.scss';
 
-.products {
-  background-color: $bg-gray;
+.products__list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-gap: 2rem;
+}
+
+.more__link {
+  display: flex;
+  justify-content: center;
   width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  height: calc(100% - 8px);
-
-  .products__header {
-    display: flex;
-    justify-content: center;
-  }
-
-  .products__list {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-gap: 2rem;
-  }
-
-  .more__link {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
 }
 
 @media (max-width: 1500px) {
-  .products {
-    .products__list {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
+  .products__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 1120px) {
-  .products {
-    .products__list {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+  .products__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 768px) {
-  .products {
-    .products__list {
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
+  .products__list {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
-
