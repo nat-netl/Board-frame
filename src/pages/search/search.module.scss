@@ -3,6 +3,7 @@
 .wrapper {
   background-color: $color-contrast-hight;
   color: $color-white;
+  flex: $flex;
 
   .search {
     display: flex;
