@@ -28,7 +28,14 @@
       }
     }
 
-    .basket {
+    .icons__list {
+      display: flex;
+      align-items: center;
+
+      .link__to__searching {
+        margin-right: 10px;
+      }
+      
       .link__to__basket {
         position: relative;
         .basket__length {
