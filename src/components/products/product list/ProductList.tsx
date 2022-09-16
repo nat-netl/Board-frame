@@ -9,6 +9,7 @@ import FilterList from "../../filters/FiltersList";
 import { IProductFilters } from "../../../types/filters";
 import { IProductsInHomePage } from "../../../types/product";
 import MoreLink from "../../ui/links/more-button/MoreLink";
+import H1ForCatalog from "../../ui/h1/h1ForCatalog/H1ForCatalog";
 
 const ProductList: FC<IProductsInHomePage> = ({ inHomePage }) => {
   const dispatch = useAppDispatch();
@@ -21,13 +22,13 @@ const ProductList: FC<IProductsInHomePage> = ({ inHomePage }) => {
     getFilteredByAll({});
   }, []);
 
-  if (products.length > 3) {
-    products.slice(0, 5);
-  }
-
   return (
     <div className={s.products}>
       <div className={m.container}>
+        <header className={s.products__header}>
+          <H1ForCatalog>Клавиатуры</H1ForCatalog>
+        </header>
+
         {inHomePage !== "/" && (
           <FilterList getFilteredByAll={getFilteredByAll} />
         )}

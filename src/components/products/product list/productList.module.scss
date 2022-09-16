@@ -6,6 +6,12 @@
   height: 100%;
   border-radius: 20px;
   height: calc(100% - 8px);
+
+  .products__header {
+    display: flex;
+    justify-content: center;
+  }
+
   .products__list {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
