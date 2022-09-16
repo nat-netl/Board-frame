@@ -4,11 +4,9 @@ import m from "./../../../assets/styles/main.module.scss";
 import classNames from "classnames";
 import { IAvalibility, IFilterState } from "../../../types/filters";
 import { InitialFiltersByIAvalibility } from "../../../constants/initialFilterValues";
+import InputFilterButton from "../../ui/inputs/inputFilterButton/InputFilterButton";
 
-const FilterByInStock: FC<IFilterState> = ({
-  filter,
-  setFilter,
-}) => {
+const FilterByInStock: FC<IFilterState> = ({ filter, setFilter }) => {
   const [activeFilter, setActiveFilter] = useState<IAvalibility>({});
 
   useEffect(() => {
@@ -23,7 +21,7 @@ const FilterByInStock: FC<IFilterState> = ({
       <h3 className={s.title__filter}>Наличие</h3>
       <div className={s.items__filter}>
         {InitialFiltersByIAvalibility.map((instock) => (
-          <input
+          <InputFilterButton
             key={instock.id}
             className={classNames(
               m.filterBtn,
@@ -38,8 +36,7 @@ const FilterByInStock: FC<IFilterState> = ({
                   })
                 : setActiveFilter({})
             }
-            type="button"
-            name="inStock"
+            name={instock.typeFilterByInStock}
             value={instock.typeFilterByInStock}
           />
         ))}

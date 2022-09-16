@@ -2,8 +2,10 @@ import React, {FC} from "react";
 import s from "./inputFilterButton.module.scss"
 
 interface IInputFilterButton {
-  name: string,
-  value: string
+  name?: string,
+  value: string | undefined,
+  className?: string,
+  onClick?: (e: React.MouseEvent<HTMLHeadingElement>) => void
 }
 
 const InputFilterButton: FC<IInputFilterButton> = ({name, value, ...props}) => {

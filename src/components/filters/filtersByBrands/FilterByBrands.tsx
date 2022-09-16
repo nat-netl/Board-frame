@@ -4,6 +4,7 @@ import s from "./filtersByBrands.module.scss";
 import m from "./../../../assets/styles/main.module.scss";
 import classNames from "classnames";
 import { InitialFiltersByBrands } from "../../../constants/initialFilterValues";
+import InputFilterButton from "../../ui/inputs/inputFilterButton/InputFilterButton";
 
 const FilterByBrands: FC<IFilterState> = ({ filter, setFilter }) => {
   const [activeFilter, setActiveFilter] = useState<IBrand>({});
@@ -17,7 +18,7 @@ const FilterByBrands: FC<IFilterState> = ({ filter, setFilter }) => {
       <h3 className={s.title__filter}>Брэнд</h3>
       <div className={s.items__filter}>
         {InitialFiltersByBrands.map((brand) => (
-          <input
+          <InputFilterButton
             key={brand.id}
             className={classNames(
               m.filterBtn,
@@ -29,7 +30,6 @@ const FilterByBrands: FC<IFilterState> = ({ filter, setFilter }) => {
                 : setActiveFilter({})
             }
             name={brand.brand}
-            type="button"
             value={brand.brand}
           />
         ))}
