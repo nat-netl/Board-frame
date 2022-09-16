@@ -11,7 +11,7 @@ export const routesForGuest: IRoutesForGuest[] = [
   },
   {
     path: homePath,
-    title: "Новинки",
+    title: "Популярные",
     consider: false
   },
 ];

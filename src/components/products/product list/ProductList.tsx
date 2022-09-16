@@ -25,9 +25,6 @@ const ProductList = () => {
 
   const currentRouter = useLocation().pathname;
 
-  console.log(routesForGuest);
-  console.log(currentRouter);
-
   return (
     <div className={s.products}>
       <div className={m.container}>
