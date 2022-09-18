@@ -1,0 +1,16 @@
+@import "./../../../assets/styles/_variables.scss";
+
+.total {
+  margin-top: 40px;
+  padding-left: 50%;
+
+  .total__amount {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .total__amount__text {
+      font-family: $font-b;
+    }
+  }
+}
