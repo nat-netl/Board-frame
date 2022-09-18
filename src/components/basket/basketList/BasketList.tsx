@@ -4,7 +4,7 @@ import BasketProduct from '../basketProduct/BasketProduct'
 import s from "./basketList.module.scss"
 import m from "./../../../assets/styles/main.module.scss"
 import { IProduct } from '../../../types/product'
-import { BasketState } from '../../../redux/slices/basket'
+import { BasketState } from '../../../types/basket'
 
 const BasketList: FC<BasketState> = ({ basket, isLoading }) => {
 

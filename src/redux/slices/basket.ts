@@ -1,17 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { BasketState } from "../../types/basket";
 import { IProduct } from "../../types/product";
-
-export interface BasketState {
-  basket: IProduct[];
-  isLoading?: boolean;
-  error?: string | null;
-}
 
 const initialState: BasketState = {
   basket: [],
   isLoading: false,
   error: "",
 };
+
+export const getBasketTotal = (basket: BasketState[]) => 
+  basket?.reduce((amount, item:any) => item.price + amount, 0 ) ;
 
 const basketSlice = createSlice({
   name: "basket",
