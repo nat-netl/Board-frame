@@ -4,7 +4,7 @@ import m from "./../../assets/styles/main.module.scss"
 import BasketList from "../../components/basket/basketList/BasketList";
 import BasketTotalAmount from "../../components/basket/basketTotalAmount/BasketTotalAmount";
 import { useAppSelector } from "../../hooks/redux";
-import { BasketState } from "../../redux/slices/basket";
+import { BasketState } from "../../types/basket";
 
 const Basket = () => {
   const { basket, isLoading, error } = useAppSelector<BasketState>(state => state.basket)
@@ -17,7 +17,7 @@ const Basket = () => {
             basket.length > 0 ?
               <>
                 <BasketList basket={basket} isLoading={isLoading} error={error} />
-                <BasketTotalAmount />
+                <BasketTotalAmount basket={basket} isLoading={isLoading} />
               </>
               :
               <h2 className={m.error}>Корзина пуста</h2>
