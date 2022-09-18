@@ -47,7 +47,7 @@ const ProductIdCard = () => {
               inStock={product[0]?.instock}
               onClick={() =>
                 dispatch(
-                  addToBasket([
+                  addToBasket(
                     {
                       id: product[0]?.id,
                       brand: product[0]?.brand,
@@ -57,8 +57,9 @@ const ProductIdCard = () => {
                       price: product[0]?.price,
                       description: product[0]?.description,
                       instock: product[0]?.instock,
+                      amount:product[0]?.amount,
                     },
-                  ])
+                  )
                 )
               }
             >

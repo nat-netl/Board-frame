@@ -42,6 +42,7 @@ const ProductList = () => {
               price={product.price}
               instock={product.instock}
               description={product.description}
+              amount={product.amount}
             />
           ))}
 
@@ -59,6 +60,7 @@ const ProductList = () => {
                 price={product.price}
                 instock={product.instock}
                 description={product.description}
+                amount={product.amount}
               />
             ))}
         {isLoading && <CardSkeleton cards={8} />}

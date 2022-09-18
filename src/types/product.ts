@@ -7,6 +7,7 @@ export interface IProduct {
   price: number;
   description?: string;
   instock?: boolean;
+  amount: number | undefined;
 }
 
 export interface IProductsInHomePage {

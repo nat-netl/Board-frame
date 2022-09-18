@@ -8,7 +8,6 @@ import { BasketState } from '../../../types/basket'
 
 const BasketList: FC<BasketState> = ({ basket, isLoading }) => {
 
-  // console.log(basket)
   return (
     <div className={s.basket__list}>
       <table>
@@ -23,6 +22,7 @@ const BasketList: FC<BasketState> = ({ basket, isLoading }) => {
                 image={product.image}
                 price={product.price}
                 instock={product.instock}
+                amount={product.amount}
               />
             ))
           }
