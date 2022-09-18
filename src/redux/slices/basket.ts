@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IProduct } from "../../types/product";
 
-interface BasketState {
+export interface BasketState {
   basket: IProduct[];
-  isLoading: boolean;
-  error: string | null;
+  isLoading?: boolean;
+  error?: string | null;
 }
 
 const initialState: BasketState = {
