@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { useAppSelector } from '../../../hooks/redux'
 import BasketProduct from '../basketProduct/BasketProduct'
 import s from "./basketList.module.scss"
+import m from "./../../../assets/styles/main.module.scss"
+import { IProduct } from '../../../types/product'
+import { BasketState } from '../../../redux/slices/basket'
 
-const BasketList = () => {
-  const { basket } = useAppSelector(state => state.basket)
+const BasketList: FC<BasketState> = ({ basket, isLoading }) => {
 
   // console.log(basket)
   return (
@@ -12,7 +14,7 @@ const BasketList = () => {
       <table>
         <tbody className={s.basket__items}>
           {
-            basket.map((product) => (
+            basket.map((product: IProduct) => (
               <BasketProduct
                 key={product.id}
                 id={product.id}
