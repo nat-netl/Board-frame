@@ -7,6 +7,7 @@
   border-radius: 15px;
   padding: 5px;
   position: relative;
+  margin-bottom: 20px;
 
   .item__image {
     padding: 1rem;
@@ -93,6 +94,9 @@
 
   &:hover .item__remove {
     display: flex;
+  }
+  &:last-child {
+    margin-bottom: 0;
   }
 }
 
