@@ -1,11 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { BasketState } from "../../types/basket";
 import { IProduct } from "../../types/product";
-
-interface BasketState {
-  basket: IProduct[];
-  isLoading: boolean;
-  error: string | null;
-}
 
 const initialState: BasketState = {
   basket: [],
@@ -13,19 +8,30 @@ const initialState: BasketState = {
   error: "",
 };
 
+export const getBasketTotal = (basket: BasketState[]) =>
+  basket?.reduce((amount, item: any) => item.price + amount, 0);
+
 const basketSlice = createSlice({
   name: "basket",
   initialState,
   reducers: {
-    addToBasket: (state, action: PayloadAction<IProduct[]>) => {
-      state.basket = [...state.basket, ...action.payload];
+    addToBasket: (state, action: PayloadAction<IProduct>) => {
+      const basketItem = state.basket.find(item => item.id === action.payload.id)
+      console.log(basketItem)
+      // if (basketItem) {
+      //   basketItem.amount++;
+      // } else {
+        state.basket.push(action.payload)
+      // }
     },
-    
+    removeFromBasket: (state, action) => {
+      state.basket = state.basket.filter((item) => item.id !== action.payload.id);
+    }
   },
 });
 
 export const cardSelector = {
   getBasket: (state: any) => state.basket,
 };
-export const { addToBasket } = basketSlice.actions;
+export const { addToBasket, removeFromBasket } = basketSlice.actions;
 export default basketSlice.reducer;

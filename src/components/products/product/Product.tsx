@@ -5,8 +5,11 @@ import s from "./product.module.scss";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Instock from "../../ui/instock/Instock";
+import { priceFormatter } from "../../../helpers/formatter/priceFormatter";
 
 const Product: FC<IProduct> = ({ id, name, image, price, instock }) => {  
+  const RUB = priceFormatter("RUB", price);
+
   return (
     <Link to={`${id}`} className={s.product}>
       <Instock instock={instock} />
@@ -26,7 +29,7 @@ const Product: FC<IProduct> = ({ id, name, image, price, instock }) => {
         </div>
 
         <div className={s.price}>
-          <span>{price} ₽</span>
+          <span>{RUB}</span>
         </div>
       </div>
     </Link>

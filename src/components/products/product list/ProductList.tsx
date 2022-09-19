@@ -1,6 +1,7 @@
 import React, { useEffect, FC, memo } from "react";
 import Product from "../product/Product";
 import s from "./productList.module.scss";
+import m from "./../../../assets/styles/main.module.scss"
 import CardSkeleton from "../../ui/skeletons/cardSkeleton/CardSkeleton";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { fetchProducts } from "../../../redux/actions/ProductsActionCreators";
@@ -41,6 +42,7 @@ const ProductList = () => {
               price={product.price}
               instock={product.instock}
               description={product.description}
+              amount={product.amount}
             />
           ))}
 
@@ -58,15 +60,16 @@ const ProductList = () => {
                 price={product.price}
                 instock={product.instock}
                 description={product.description}
+                amount={product.amount}
               />
             ))}
         {isLoading && <CardSkeleton cards={8} />}
       </div>
-      {error && <h2>{error}</h2>}
-      {products.length <= 0 ? (
-        <h2>По вашему запросу ничего не найдено</h2>
+      {error && <h2 className={m.error}>{error}</h2>}
+      {!error && products.length <= 0 ? (
+        <h2 className={m.error}>По вашему запросу ничего не найдено</h2>
       ) : null}
-      {currentRouter === "/" && (
+      {!error && currentRouter === "/" && (
         <div className={s.more__link}>
           <MoreLink link="keyboards">Показать все</MoreLink>
         </div>
