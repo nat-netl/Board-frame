@@ -57,7 +57,7 @@ const ProductIdCard = () => {
                       price: product[0]?.price,
                       description: product[0]?.description,
                       instock: product[0]?.instock,
-                      amount:product[0]?.amount,
+                      amount:product[0]?.amount && product[0]?.amount,
                     },
                   )
                 )
