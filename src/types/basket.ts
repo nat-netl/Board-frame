@@ -1,5 +1,3 @@
-import { IProduct } from "./product";
-
 export interface IBaseBasket {
   id: number;
   brand: string;
@@ -20,5 +18,5 @@ export interface BasketState {
 
 export interface IQuantityState {
   quantity: number | undefined;
-  setQuantity: (value: React.ChangeEvent<HTMLInputElement>) => void
+  setQuantity: (value: React.ChangeEvent<HTMLInputElement>) => void;
 }
