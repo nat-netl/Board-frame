@@ -1,12 +1,10 @@
 import React, { FC } from 'react'
-import { useAppSelector } from '../../../hooks/redux'
 import BasketProduct from '../basketProduct/BasketProduct'
 import s from "./basketList.module.scss"
-import m from "./../../../assets/styles/main.module.scss"
 import { IProduct } from '../../../types/product'
 import { BasketState } from '../../../types/basket'
 
-const BasketList: FC<BasketState> = ({ basket, isLoading }) => {
+const BasketList: FC<BasketState> = ({ basket }) => {
 
   return (
     <div className={s.basket__list}>
