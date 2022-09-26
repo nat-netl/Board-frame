@@ -4,6 +4,7 @@ import Keyboards from "../pages/keyboards/Keyboards";
 import ProductIdCard from "../components/products/productIdCard/ProductIdCard";
 import Basket from "../pages/basket/Basket";
 import Search from "../pages/search/Search";
+import Error from "../pages/error/Error";
 
 export const homePath = "/";
 export const keyboardsPath = "/keyboards";
@@ -41,4 +42,6 @@ export const privateRoutes: IPrivateRoutes[] = [
   { path: "/search", element: <Search /> },
   { path: "/search/:id", element: <ProductIdCard /> },
   { path: "/basket", element: <Basket /> },
+  { path: "/error", element: <Error /> },
+  { path: "*", element: <Error /> },
 ];

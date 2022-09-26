@@ -11,7 +11,7 @@ import { priceFormatter } from "../../../helpers/formatter/priceFormatter";
 import { fetchProductsById } from "../../../redux/actions/ProductsActionCreators";
 
 const ProductIdCard = () => {
-  const { id }: any = useParams();
+  const { id }: any = useParams<{id: string}>();
   const { basket } = useAppSelector((state) => state.basket);
   const dispatch = useAppDispatch();
   const {
