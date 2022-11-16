@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { priceFormatter } from "../../../helpers/formatter/priceFormatter";
+import { prettifyPrice } from "../../../helpers/prettify/prettifyPrice";
 import { useAppDispatch } from "../../../hooks/redux";
 import {
   clearBasket,
@@ -23,7 +24,7 @@ const BasketTotalAmount: FC<BasketState> = ({ basket }) => {
     <div className={s.total}>
       <div className={s.total__amount}>
         <span className={s.total__amount__text}>Итого</span>
-        <span>{priceFormatter("RUB", totalPrice.cost)}</span>
+        <span>{priceFormatter("RUB", prettifyPrice(totalPrice.cost))}</span>
       </div>
       <BuyBlueButton onClick={onClickBuyProducts}>Купить</BuyBlueButton>
     </div>

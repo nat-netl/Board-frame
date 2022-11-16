@@ -9,6 +9,7 @@ import BuyGreenButton from "../../ui/buttons/buy-button/BuyGreenButton";
 import Instock from "../../ui/instock/Instock";
 import { priceFormatter } from "../../../helpers/formatter/priceFormatter";
 import { fetchProductsById } from "../../../redux/actions/ProductsActionCreators";
+import { prettifyPrice } from "../../../helpers/prettify/prettifyPrice";
 
 const ProductIdCard = () => {
   const { id }: any = useParams<{id: string}>();
@@ -22,7 +23,7 @@ const ProductIdCard = () => {
     dispatch(fetchProductsById(id));
   }, [dispatch, id]);
   const isExistsInCard = basket.some((p) => p.id === product[0]?.id);
-  const RUB = priceFormatter("RUB", product[0]?.price);
+  const RUB = priceFormatter("RUB", prettifyPrice(product[0]?.price));
 
   return (
     <div className={s.product}>
