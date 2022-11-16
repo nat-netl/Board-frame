@@ -27,3 +27,8 @@ export interface IFilterRoutes {
   id: number;
   component: JSX.Element;
 }
+
+export interface IBrands {
+  id: number;
+  brand: string;
+}

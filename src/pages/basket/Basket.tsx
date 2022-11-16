@@ -18,7 +18,7 @@ const Basket = () => {
           {basket.length > 0 ? (
             <>
               <BasketList basket={basket} isLoading={isLoading} error={error} />
-              <BasketTotalAmount basket={basket} isLoading={isLoading} />
+              <BasketTotalAmount basket={basket} />
             </>
           ) : (
             <h2 className={m.error}>Корзина пуста</h2>

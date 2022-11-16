@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { useDispatch } from "react-redux";
+import { prettifyPrice } from "../../../helpers/prettify/prettifyPrice";
 import {
   addToBasket,
   decreaseStuffQuantity,
@@ -84,7 +85,7 @@ const BasketProduct: FC<IProduct> = ({
         </div>
       </td>
       <td className={s.item__price}>
-        {amount && amount ? price * amount : price} ₽
+        {amount ? prettifyPrice(price * amount) : prettifyPrice(price)} ₽
       </td>
       <td className={s.item__remove}>
         <button className={s.remove__btn} type="button" onClick={onDeleteItem}>

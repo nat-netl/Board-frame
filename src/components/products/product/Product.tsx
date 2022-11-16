@@ -6,9 +6,10 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Instock from "../../ui/instock/Instock";
 import { priceFormatter } from "../../../helpers/formatter/priceFormatter";
+import { prettifyPrice } from "../../../helpers/prettify/prettifyPrice";
 
-const Product: FC<IProduct> = ({ id, name, image, price, instock }) => {  
-  const RUB = priceFormatter("RUB", price);
+const Product: FC<IProduct> = ({ id, name, image, price, instock }) => {
+  const priceRub = priceFormatter("RUB", prettifyPrice(price));
 
   return (
     <Link to={`${id}`} className={s.product}>
@@ -29,7 +30,7 @@ const Product: FC<IProduct> = ({ id, name, image, price, instock }) => {
         </div>
 
         <div className={s.price}>
-          <span>{RUB}</span>
+          <span>{priceRub}</span>
         </div>
       </div>
     </Link>

@@ -1,11 +1,11 @@
 interface PriceTypes {
   code: string,
-  price: number ,
+  price: number | string,
   symbol: string
 }
 
 
-export const priceFormatter = (code: string, price: number): string | undefined  => {
+export const priceFormatter = (code: string, price: number | string): string | undefined  => {
 
   switch (code) {
     case "RUB":
